@@ -492,7 +492,7 @@ def get_entity_cat_subcat_distribution(entity,text_analysis_df,code_subcategory_
                 })
         else:
             # category_counts = entity_df["CATEGORY"].value_counts()
-            adf = entity_df.groupby("SUBCATEGORY").sum().sort_values(by="ISSUE_WEIGHT")
+            adf = entity_df.groupby("SUBCATEGORY").sum(numeric_only=True).sort_values(by="ISSUE_WEIGHT")
             # adf = (entity_df
             #        .groupby("PSC_CODE", as_index=False)        # keep PSC_CODE as a column
             #        .agg(ISSUE_WEIGHT = ("ISSUE_WEIGHT", "sum"),
@@ -512,7 +512,7 @@ def get_entity_cat_subcat_distribution(entity,text_analysis_df,code_subcategory_
                 })
         else:
             # sub_category_counts = entity_df["SUBCATEGORY"].value_counts()
-            adf = entity_df.groupby("SUBCATEGORY").sum().sort_values(by="ISSUE_WEIGHT")
+            adf = entity_df.groupby("SUBCATEGORY").sum(numeric_only=True).sort_values(by="ISSUE_WEIGHT")
             # adf = (entity_df
             #        .groupby("PSC_CODE", as_index=False)        # keep PSC_CODE as a column
             #        .agg(ISSUE_WEIGHT = ("ISSUE_WEIGHT", "sum"),
