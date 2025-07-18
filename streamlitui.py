@@ -550,7 +550,8 @@ with tab_risk:
 
     with risk_change:
         
-        vessel_change_score_mapping = st.session_state["vessel_change_score_mapping"]
+        # vessel_change_score_mapping = st.session_state["vessel_change_score_mapping"]
+        vessel_change_score_mapping = run_change_analysis(dynamic_factors_data)
         vessel_change_score_mapping_df = pd.DataFrame(list(vessel_change_score_mapping.items()), columns=['Vessel', 'Change Score'])
         unique_vessels31 = ["None"]+list(vessel_change_score_mapping.keys())
         # vessel_change_score_mapping_df["Vessel"] = vessel_change_score_mapping_df["Vessel"].astype(str)
