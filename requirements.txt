@@ -6,3 +6,4 @@ nltk
 networkx
 pyvis
 chardet
+openpyxl
