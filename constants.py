@@ -65,9 +65,9 @@ RISK_WEIGHTS = {
     # If you add new columns later simply extend the dict
 }
 
-ISSUE_HALF_LIFE=500
+ISSUE_HALF_LIFE=365
 lambda_val=np.log(2)/ISSUE_HALF_LIFE
-HALF_LIFE_CHANGES = 500 # 6 Months to reduce the score by 0.5
+HALF_LIFE_CHANGES = 365 # 6 Months to reduce the score by 0.5
 lambda_val_dynamic_factors = np.log(2) / HALF_LIFE_CHANGES
 
 WACTION = 0.7
