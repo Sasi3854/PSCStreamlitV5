@@ -1,0 +1,528 @@
+Section,Question No,Question
+General Information,1.2,Vessel’s IMO Number: (M)
+General Information,1.3,Flag: (M)
+General Information,1.4,Date the vessel was delivered: (M)
+General Information,1.5,"Date of layup, if any greater than three months since vessel’s delivery: N/A ☐"
+General Information,1.6,Maximum assigned deadweight (metric tonnes):
+General Information,1.7,Vessel type: (M)
+General Information,1.8,Hull type: (M)
+General Information,1.9,Vessel’s operation at the time of inspection:
+General Information,1.10,Name of cargo being handled: N/A
+General Information,1.11,Details of Port State Control inspection history for the last 12 months: (M) N/A
+General Information,1.12,Name of classification society: (M)
+General Information,1.13,Expiry date of class certificate: (M)
+General Information,1.14,Date the last Special Survey was completed: (M) N/A
+General Information,1.15,Date of last routine dry dock: (M) N/A
+General Information,1.16,Date of unscheduled repair / and or dry dock: (M) N/A
+General Information,1.17,EEDI: (M) N/A
+General Information,1.18,Date of last Flag inspection: (M) N/A
+General Information,1.19,Name of the vessel’s manager: (M)
+General Information,1.20,Date the current vessel’s manager took over the vessel:
+General Information,1.21,Dates of last two visits of the ship’s manager: (M) 1st Visit: N/A 2nd Visit: N/A
+General Information,1.22,Name of the Rightship inspector:
+General Information,1.23,Port of inspection: (V)
+General Information,1.24,Date and time Rightship Inspector arrived at the vessel: (V)
+General Information,1.25,Date and time Rightship inspector left the vessel: (V)
+Certification and Personnel Management,2.1,"Is the latest Class Survey Status available and are all statutory certificates listed in the Class Survey Status valid, and is the vessel free of condition of class or significant recommendations? (M)"
+Certification and Personnel Management,2.2,Has the vessel been provided with certificates of financial security for seafarers? (M)
+Certification and Personnel Management,2.3,Can all crew communicate effectively in the working language of the ship? (V)
+Certification and Personnel Management,2.4,Is the vessel’s manning in compliance with the Safe Manning Certificate? (V)
+Certification and Personnel Management,2.5,Do all personnel maintain rest period/work hours and are the rest hours in compliance with STCW or MLC requirements? (V)
+Certification and Personnel Management,2.6,Has the Master been provided with relevant ship handling training? (V)
+Certification and Personnel Management,2.7,"Are those officers who have immediate responsibility for carrying and care of dangerous and hazardous substances in solid form in bulk, in possession of specialised training as appropriate to the type of cargo being carried? (V)"
+Certification and Personnel Management,2.8,"Are those officers who have immediate responsibility for carrying and care of dangerous and hazardous substances in packaged form, in possession of specialised training as appropriate to the type of cargo being carried? (V)"
+Certification and Personnel Management,2.9,Has an SMS policy and procedure been established to enforce the STCW Convention and Code requirements for the purpose of preventing drug and alcohol abuse? (V & M)
+Certification and Personnel Management,2.10,"Are the limits of blood and breath alcohol contents in the drug and alcohol policy equal to, or less than the STCW mandatory alcohol limit? (V&M)"
+Certification and Personnel Management,2.11,When was the date of the last recorded unannounced on-board group alcohol test? (M)
+Certification and Personnel Management,2.12,When was the date of the last unannounced drug test undertaken by an external agency? (M)
+Certification and Personnel Management,2.13,Is the officer matrix accurately completed and does it reflect the information on officers and engineers on board the vessel at the time of inspection? (V)
+Certification and Personnel Management,2.14,"If ECDIS was fitted on board, have the Master and Deck Officers completed Generic training and type-specific familiarisation? (V)"
+Certification and Personnel Management,2.15,Does the ship’s manager provide value-added training courses beyond the STCW to its on-board engineers? (V)
+Certification and Personnel Management,2.16,Does the Air Handling Unit (AHU) maintain a comfortable temperature and is there recorded evidence of regular maintenance and cleaning of AHU available? (V)
+Navigation,3.1,Are comprehensive written practical guidance on navigational safety available on the bridge? (V & M)
+Navigation,3.2,Are the requirements of the master’s standing orders explained to the deck officers? and are bridge order books (Night Order) being completed by the master and countersigned by the officers? (V & M)
+Navigation,3.3,"Is the manoeuvring information for the vessel displayed on the bridge and are bridge logbooks, bell book, radar performance book, and Change of Watch at Sea check list being correctly maintained? (V)"
+Navigation,3.4,Have operational checks on navigational equipment been done and are checklists being effectively completed when preparing for sea and prior to port entry? (V)
+Navigation,3.5,Are there records indicating that routine tests and checks of bridge equipment are being undertaken regularly? (V)
+Navigation,3.6,Has the master/pilot information exchange been taking place effectively and is the standard pilot card being completed as required? (V)
+Navigation,3.7,Does the vessel’s manager produce a guideline for under keel clearance and air draft clearance? (M)
+Navigation,3.8,Are the fire and safety rounds being conducted at the end of each watch? (V)
+Navigation,3.9,Does the manning level in the bridge at all stages of the voyage and anchor meet or exceed that required by the Bridge Manning Matrix and are lookout arrangements adequate? (V)
+Navigation,3.10,Is navigation equipment in good order? (V)
+Navigation,3.11,"Are navigation lights, emergency navigation lights, shapes and signalling equipment in working order? (V)"
+Navigation,3.12,"Was the Bridge Navigational Watch Alarm System operational when the ship was underway and at anchor, and required tests conducted and recorded accordingly? (V)"
+Navigation,3.13,"Where fitted are the standard magnetic compass, gyro compass and Global Navigation Satellite System compass, operational, adjusted and properly maintained? (V & M)"
+Navigation,3.14,"Where manual steering is engaged, is the change over from auto steering, and vice versa, recorded? (V)"
+Navigation,3.15,Are deck officers familiar with the procedure to preserve the VDR data in the event of an incident and is there a company policy within the SMS relating to the playback of VDR data? (V)
+Navigation,3.16,"Is a chart and publication management system being implemented to ensure that all charts, nautical publications, and other publications on board are current, maintained and up to date? (V & M)"
+Navigation,3.17,Were appropriate charts and publication used for the previous voyage? (V)
+Navigation,3.18,Can the master and watch-keeping officer demonstrate a familiarity with the use of ECDIS? (V)
+Navigation,3.19,Is the ECDIS of an approved type and does it meet the SOLAS requirement? (M)
+Navigation,3.20,Are T&P NMs and navigation warnings being used correctly in voyage planning and monitoring? (V)
+Navigation,3.21,Has the vessel been safely navigated in compliance with international and inland regulations? (V)
+Navigation,3.22,"Are records available to show that the echo-sounder recorder is being switched on prior to each approach to shallow water, port entry and departure and has the echo sounder remained in operation while the vessel has been transiting in shallow waters? (V)"
+Navigation,3.23,Was the berth-to-berth passage plan of the previous voyage comprehensive and approved by the master? (V)
+Navigation,3.24,"Have the parallel index techniques been used when monitoring the passage in coastal and pilotage waters, particularly in conditions of restricted visibility or at night? (V)"
+Navigation,3.25,Was the track of the ship monitored at sea and during the pilotage? (V)
+Navigation,3.26,Has the GPS been adjusted to the correct Geodetic Datum and are officers aware of the value of HDOP and is it posted next to the GPS? (V)
+Navigation,3.27,Does the vessel utilise a weather routeing service? (V)
+Navigation,3.28,"Are procedures in place controlling the use of mobile phone, internet, and email services on the bridge? (V)"
+ISM System,4.1,Has the vessel’s manager established a documented system for personnel to effectively implement the ISM Code? (V)
+ISM System,4.2,"Has a safety officer been appointed and trained, and is the safety officer familiar with the principles and practice of risk assessment? (V)"
+ISM System,4.3,Are records of the latest shipboard internal and external audits available and are actions being initiated to correct any non-conformities? (M)
+ISM System,4.4,"Does the master periodically review the effectiveness of the onboard Safety Management System, report the findings to shore based management and receive feedback from them? (M)"
+ISM System,4.5,"Are enclosed space entry procedures defined, up to date and accurate in the safety management system, and is a specific list of enclosed spaces clearly defined on board ,and are the ship’s personnel familiar with the enclosed space entry procedures? (V)"
+ISM System,4.6,Is entry into and rescue from enclosed space training undertaken and are regular drills conducted? (V)
+ISM System,4.7,"Are procedures in place for the control of hot work, are they incorporated in the safety management system and is there documented evidence of compliance? (M)"
+ISM System,4.8,Has a specific permit to work and effective Lock-Out/Tag-Out (LOTO) system been introduced for high-risk duties and are the permits being used effectively? (V)
+ISM System,4.9,Is there a schedule of drills and exercises to address potential emergency shipboard situations and is it being conducted effectively? (V)
+ISM System,4.10,"Are there procedures for reporting, investigation and close-out of non-conformities, accidents, and hazardous situations available and are they being followed? (V)"
+ISM System,4.11,Has a PPE Matrix for use of personal protective equipment been provided and is it being worn as required? (V)
+ISM System,4.12,"Are on-board safety meetings held regularly and, are they reviewed by the vessel’s manager and feedback provided where necessary? (M)"
+ISM System,4.13,Is a completed IMSBC/BLU Code ship/shore safety checklist for loading and unloading dry bulk carriers available and are the requirements of the checklist complied with? (M)
+ISM System,4.14,Are Water Ingress Detector System(WIDS) and alarms maintained in good condition and are the records of tests being maintained? (V & M)
+ISM System,4.15,Has a smoking policy been implemented; is it being followed and are designated smoking areas adequately identified? (V)
+ISM System,4.16,"Are portable gas detectors suitable for atmosphere testing of enclosed spaces provided; in good condition; calibrated in accordance with the manufacturer’s instructions, and are officers trained and competent with their operation? (V & M)"
+ISM System,4.17,Is welding and gas burning equipment in good order and properly stored? (V & M)
+ISM System,4.18,"Are the lifeboats, rescue boat and davit-launched life raft; their equipment and launching arrangements being serviced periodically; in good condition, and are the crew familiar with the launching procedure and operation? (V & M)"
+ISM System,4.19,Are life rafts in good order and are hydrostatic release units maintained and installed correctly? (V & M)
+ISM System,4.20,"Are life jackets in good condition, allocated as per the plan and donning instructions clearly displayed? (V & M)"
+ISM System,4.21,"Are immersion suits and anti-exposure suits of an approved type, in good condition, correctly stowed, readily accessible and of the appropriate size? (V & M)"
+ISM System,4.22,"Are IMO symbols to identify the location of life saving equipment, firefighting equipment and hazardous area displayed appropriately and in good condition? (V)"
+ISM System,4.23,"Has a sample of foam compound, applicable to both fixed and portable systems, been sent for regular testing and is evidence of satisfactory results available? (M)"
+ISM System,4.24,"Are fire mains and associated isolation valves, fire boxes, hoses, nozzles, applicators, and spanners regularly inspected and maintained and found to be in a satisfactory operating condition? (V & M)"
+ISM System,4.25,Are the International Shore Connection fitting arrangements clearly marked and well maintained and are the crew aware of their location? (V)
+ISM System,4.26,Are records available to show that fixed fire detection and alarm systems have been tested at regular intervals and maintained in good condition? (V)
+ISM System,4.27,"Are the fixed fire extinguishing systems (where fitted) inspected, tested and in good order? (V & M)"
+ISM System,4.28,"Is the emergency fire pump being regularly tested, in good operational condition and are starting instructions clearly posted? (V)"
+ISM System,4.29,"Are portable fire extinguishers being maintained in good order, and ready for immediate use in an emergency? (V)"
+ISM System,4.30,Are firemen’s outfits including their equipment and breathing apparatus in good condition and available for instant use? (V & M)
+ISM System,4.31,"Is the operation and maintenance of the breathing apparatus air recharging system (where fitted) incorporated in the ship’s safety management manual, and has the annual air quality check for breathing apparatus air recharging systems been carried out? (V & M)"
+ISM System,4.32,"Are records available to show that emergency escape breathing devices (EEBDs) in the accommodation and engine room are being inspected, in good condition and are available for instant use? (V & M)"
+ISM System,4.33,Are ventilation fire dampers clearly marked with open/close positions and space served and is there evidence of regular testing and maintenance? (V)
+ISM System,4.34,"Are Material Safety Data Sheets (MSDS) for all bunkers, chemicals, paint, corrosive, and toxic materials available, and are all crew familiar with their contents? (V)"
+ISM System,4.35,Is a safe means of access to the vessel being provided? (V)
+ISM System,4.36,"Are accommodation ladders and gangways maintained in good condition, marked clearly, and inspected regularly (V)"
+ISM System,4.37,"Are pilot ladders used for pilot transfer in good condition and inspected regularly, clearly identified with tags or with permanent marking and are maintenance records available? (V)"
+ISM System,4.38,Has the vessel been provided with ship-specific fire safety and SOLAS training manuals and operational booklets? (V)
+ISM System,4.39,"If the vessel is provided with a helicopter operating area, does the area comply with the requirements of ICS guidelines, and is there a safe access from the hatch cover to deck? (V)"
+ISM System,4.40,Is an up-to-date muster list with ship specific emergency instructions displayed? (V)
+ISM System,4.41,"Are the crew familiar with the helicopter operation at sea, and are records available to show that the proper communication, shipboard helicopter safety checklist and specific risk assessment conducted prior to helicopter operation? (V)"
+Pollution Prevention and Control,5.1,Is the Oil Record Book (Part 1) completed correctly?
+Pollution Prevention and Control,5.2,"Is an approved MARPOL Shipboard Oil Pollution Emergency Plan (SOPEP) available, and up to date and are ship’s personnel familiar with their duties?"
+Pollution Prevention and Control,5.3,Are the ship’s personnel aware of the requirements of MARPOL Annex V with respect to the disposal of operational waste and cargo residues from ships?
+Pollution Prevention and Control,5.4,"Are scupper plugs fitted, in satisfactory condition, and are scupper filters readily available for draining rainwater on deck when the vessel is involved in solid bulk cargo operations?"
+Pollution Prevention and Control,5.5,Is the vessel free from any visible bulkhead leakage?
+Pollution Prevention and Control,5.6,"Are the cargo hold bilge pumping systems and bilge arrangements appropriately set, in good order and tested?"
+Pollution Prevention and Control,5.7,"Is the sounding of cargo hold bilge, ballast tanks, chain lockers, pipe ducts and other void spaces regularly performed for accumulations of water, or alternative evidence of regular monitoring?"
+Pollution Prevention and Control,5.8,Are suitable containment arrangements in place around the hydraulic components of deck machinery?
+Pollution Prevention and Control,5.9,"Are the arrangements for detection and disposal of water from forecastle store and chain locker in good order, and are measures in place to prevent the accidental discharge of oil?"
+Pollution Prevention and Control,5.10,"If a ballast water treatment system is fitted, is it in good order and are the officers familiar with its safe operation?"
+Pollution Prevention and Control,5.11,Is an approved ballast water and sediment management plan provided and complied with?
+Pollution Prevention and Control,5.12,"If ballast tanks are located adjacent to fuel oil tanks, or there is a possibility of contamination by hydraulic oil, are ballast tank contents being sampled to ensure there has been no contamination of the water by oil prior to discharge?"
+Pollution Prevention and Control,5.13,"Are the emergency bilge suction and emergency overboard discharge valves in the engine room in good order and clearly identified with a notice warning against accidental opening and, is the area around the bilge injection suction bellmouth clear of debris and clean?"
+Pollution Prevention and Control,5.14,Are arrangements for sludge collecting pumps free from any connection to a direct overboard discharge?
+Pollution Prevention and Control,5.15,Are the Engine room Bilge pumping system and Oily Water Separator (OWS) in good order and being operated in accordance with MARPOL requirements?
+Pollution Prevention and Control,5.16,Have specific warning signs been posted at the Oily Water Separator overboard discharge valve and effective sealing arrangements implemented to prevent accidental opening?
+Pollution Prevention and Control,5.17,Is the steering compartment oily bilge water discharge arrangement satisfactory?
+Pollution Prevention and Control,5.18,Has a declaration been provided by the shipper as to whether the cargo is harmful to the marine environment (HME)?
+Pollution Prevention and Control,5.19,Has a Garbage Management Plan been provided and is the Garbage Record Book (GRB) being correctly maintained?
+Pollution Prevention and Control,5.20,Are the garbage storage and disposal facilities in a tidy and hygienic condition?
+Pollution Prevention and Control,5.21,Has the vessel been provided with a specific Ship Energy Efficiency Management Plan (SEEMP)?
+Pollution Prevention and Control,5.22,Has the vessel been provided with an International Energy Efficiency Certificate?
+Pollution Prevention and Control,5.23,If the vessel is provided with an exhaust gas cleaning system (scrubber system) are the engineers familiar with its safe operation and have procedures been incorporated in the Safety Management System?
+Pollution Prevention and Control,5.24,Is the vessel free from any visible valve or pipeline leakage?
+Pollution Prevention and Control,5.25,"Are the ballast pumping systems, their associated instruments, controls, valves, and pipework in good order and is there recorded evidence of regular inspection?"
+Pollution Prevention and Control,5.26,Are the ballast valves in good order and being maintained?
+Pollution Prevention and Control,5.27,Are ballast tank manholes being maintained in good condition?
+Ship’s Structure,6.1,Is the vessel free of any hull repairs unreported to class? (V)
+Ship’s Structure,6.2,"Does the SMS include procedures for regular inspection of cargo holds, ballast tanks, void spaces, trunks, duct keel and cofferdams by the ship’s personnel and are records maintained? (V)"
+Ship’s Structure,6.3,Is the enhanced survey report file adequately maintained and does the condition evaluation report confirm the fitness of the ship for its intended service for the next five years? (M)
+Ship’s Structure,6.4,"Are the access points to cargo holds, ballast tanks, and void spaces including vertical ladders, spiral ladders, rungs, stations, and platforms being maintained and in good order? (V)"
+Ship’s Structure,6.5,Are the air pipes and sounding pipes in the cargo holds and void spaces in good condition? (V)
+Ship’s Structure,6.6,"If the vessel has a duct keel, is the access, mechanical ventilator, and lighting adequate and is it free of water? (V)"
+Ship’s Structure,6.7,Is the vessel free of any apparent structural defects? (V)
+Ship’s Structure,6.8,Are cargo hold ventilation systems being maintained in good condition? (V)
+Ship’s Structure,7.1,"Is adequate manifold spill containment provided under the bunker manifolds, and are they clean and empty? (V)"
+Ship’s Structure,7.2,Is bunker transfer system hydrostatically tested to their Maximum Allowable Working Pressure (MAWP) on an annual basis and to 1.5 times their MAWP at least twice within any five years period?
+Ship’s Structure,7.3,"Are the drains, vents, and pressure gauges at the bunker manifolds in good order and blanks fitted when not in use? (V)"
+Ship’s Structure,7.4,"Are save-alls fitted around all fuel, diesel, and lubricating oil tank vents; are they clean and empty, and is the drain plug secured with a strap chain to a save-all? (V)"
+Ship’s Structure,7.5,"Are there procedures for analysis of fuel, lubricating and hydraulic oils, and are oil sampling requirements aligned with equipment manufacturer’s recommendations? (V & M)"
+Ship’s Structure,7.6,Are SMS guidelines for the mitigation of engine damage due to catalytic fines and other potentially injurious elements or containments in place and being followed? (V & M)
+Ship’s Structure,7.7,"Are bunkering and oil transfer operations carefully planned and executed in accordance with procedures, and are details of the last operation available? (V)"
+Ship’s Structure,7.8,"Can the vessel safely comply with the requirements of Emission Control Area (ECA) and other local requirements regarding use of very-low or ultra-low sulphur fuels in the main engine, auxiliary engines and boilers? (M)"
+Ship’s Structure,7.9,"Are ship-specific procedures to control the change from residual to low-sulphur / distillate fuels and vice versa provided, and is the fuel oil change over logbook and data collection system being maintained correctly? (V & M)"
+Ship’s Structure,7.10,Are the Quick Closing Valves of the fuel system being regularly tested and in good order? (V)
+Ship’s Structure,7.11,"Are high pressure fuel delivery pipes of diesel engines protected with a jacketed piping and alarm system, and is the alarm system being tested regularly and in good order? (V)"
+Ship’s Structure,7.12,"Are purifier rooms and fuel and lubricating oil handling areas ventilated, free of oil leaks and clean? (V)"
+Ship’s Structure,7.13,Is the reserve fuel tank of the emergency generator filled with sufficient fuel of a suitable type for at least 18 hours operation? (V)
+Ship’s Structure,7.1,"Is there an approved LNG Fuel Handing and Emergency Procedure Manual, and are crew familiar with the bunkering and emergency procedures such as leakage, fire or potential fuel stratification resulting in rollover?"
+Ship’s Structure,7.2,"Do the master, engineering officers and all personnel with immediate responsibility for the care and use of fuels and fuel systems on ship, hold a certificate in advanced training for service on the ships subject to the IGF Code?"
+Ship’s Structure,7.3,"Do seafarers responsible for designated safety duties associated with the care, use or emergency response to the fuel onboard the ship, hold a certificate in basic training for service on ships subject to the IGF Code?"
+Ship’s Structure,7.4,Does the schedule of drills and exercises related to LNG fuels address potential emergency shipboard situations and has it been conducted effectively?
+Ship’s Structure,7.5,Are hazardous areas marked with clearly visible warning signage and are the crew familiar with the special precautions and the risks for those areas?
+Ship’s Structure,7.6,Are staff responsible for LNG bunkering aware of their responsibilities and actions to be taken in case of malfunction or emergency and are instructions and warning signs clearly posted on site for safe LNG bunkering operation?
+Ship’s Structure,7.7,"Is the safety zone clearly marked and, have restrictions within the safety zone been enforced and followed?"
+Ship’s Structure,7.8,Are the self-igniting lights of lifebuoys located in the hazardous area intrinsically safe?
+Ship’s Structure,7.9,Is the LNG bunkering operator control panel fitted with an earth indicator light to indicate the faulty circuits and is the control panel free of any faulty earth indication during LNG bunkering?
+Ship’s Structure,7.10,Is the main radio aerial earthed and are portable two-way UHF radios approved for use in hazardous areas?
+Ship’s Structure,7.11,Has a pre-compatibility assessment and study of the weather and current forecast been carried out prior to confirming the bunkering operation and is there documented evidence of such assessment and study?
+Ship’s Structure,7.12,Is all lighting around the bunker area Ex-rated and does it appear adequate to illuminate the bunker area?
+Ship’s Structure,7.13,"Have the key components of the LNG bunkering system been identified, included within the PMS, maintained and where applicable, calibrated as per the manufacturer’s recommendation?"
+Ship’s Structure,7.14,Is there a procedure for communication failure during LNG bunkering operation and are crew familiar with such a procedure?
+Ship’s Structure,7.15,Is there an agreed method of tank pressure and temperature control between the delivering and receiving vessels and is there recorded evidence to show that both ships’ combined temperature and pressure range are within the safety limits before commencing LNG bunkering?
+Ship’s Structure,7.16,Is there evidence to show that a detailed mooring plan was exchanged between the delivering and receiving vessels and has the master of the receiving vessel reviewed the type and size of fenders of the delivering vessel?
+Ship’s Structure,7.17,Has the LNG hose handling operation been carried out and supervised by trained personnel?
+Ship’s Structure,7.18,Is a water curtain system provided for the ship’s sides in way of manifold and is the manifold tray arrangement adequate and free of any sharp edges?
+Ship’s Structure,7.19,Has the LNG fuels bunkering checklist been correctly completed and is there evidence to show that they are effectively managing their obligations as accepted in the checklist?
+Ship’s Structure,7.20,Are LNG bunker lines being inerted immediately after completion of LNG bunkering and disconnection of hoses from the manifolds and before departure?
+Ship’s Structure,7.21,Are system safety valves in good order and officers aware of the requirements?
+Ship’s Structure,7.22,Is the receiving vessel in a high state of readiness at all times during LNG bunkering operations?
+Ship’s Structure,7.23,Was the vessel provided with contingency plans for dealing with emergencies?
+Ship’s Structure,7.24,Is the emergency shutdown system in good order and is there recorded evidence of regular testing?
+Ship’s Structure,7.25,"Are tank domes, domes’ insulation, vapour and filling pipes’ insulation, manhole cover insulation and associated fittings in good order, free from leaks and corrosion?"
+Ship’s Structure,7.26,Are LNG fuel tanks protected by an independent LNG tank level alarm device and is there recorded evidence to show that the device has been tested regularly?
+Ship’s Structure,7.27,"Is there recorded evidence of regular calibration of thermometers, pressure gauges, the gas detection system and tank level gauges?"
+Ship’s Structure,7.28,Is prevention of over-pressurization of the LNG transfer system in the event of activation of the ERS or the ESD documented in the LNG fuel-handing manual?
+Ship’s Structure,7.29,"Are precautions to prevent electrostatic charge in the LNG bunker hose being taken and, have the minimum and maximum hose lengths and diameters that the hose support loading arm and/or hose saddles can support been documented in the LNG fuel-handing manual?"
+Ship’s Structure,7.30,"Are the officers aware of any LNG bunker loading limitations for the vessel and are these limitations, if applicable, clearly posted at the LNG bunker operation panel?"
+Ship’s Structure,8.1,Is the vessel provided with vessel manager’s procedures and relevant publications for the safe carriage and handling of solid bulk cargoes? (V)
+Ship’s Structure,8.2,Has appropriate information about the cargo and its characteristics been provided to the master prior to loading? (V)
+Ship’s Structure,8.3,"Has the Master been provided with a signed certificate or declaration, indicating the moisture content, Transportable Moisture Limit (TML) and density? (V & M)"
+Ship’s Structure,8.4,"Is information readily available on the ballasting and de-ballasting rate, the maximum allowable load per unit, the surface area of the tank-top plating, and the maximum allowable load per hold? (V)"
+Ship’s Structure,8.5,Is there an approved damaged stability / stability and loading booklet available? (V)
+Ship’s Structure,8.6,Is a Class-approved loading computer or programme in use and has the operational accuracy been regularly tested? (V)
+Ship’s Structure,8.7,"Are the stresses, stability information and any limitations included in the cargo plan understood by the cargo watch officers, and are conditions being monitored and maintained within design limits throughout the cargo operation? (V)"
+Ship’s Structure,8.8,"Are there procedures in place for loading, ballasting and de-ballasting of the ballast holds? (V)"
+Ship’s Structure,8.9,Are there guidelines and procedures for hold cleaning after completion of unloading? (V)
+Ship’s Structure,8.10,Is the vessel free of any limitations or restrictions specified in the Loading Manual or Trim and Stability Booklet? (V)
+Ship’s Structure,8.11,"Are officers familiar with the risk, hazard and carriage requirements of solid bulk cargo on board the ship? (V)"
+Ship’s Structure,8.12,"Have precautionary measures to minimise the risk of potential liquefaction and chemical reaction within the cargo during the voyage been incorporated in the procedures, and are these procedures being followed? (V)"
+Ship’s Structure,8.13,"If the solid bulk cargo is not listed in the IMSBC Code, has the Master been provided with a certificate from the shipper, endorsed by the competent authority of the port, stating the characteristics of the cargo and the required conditions for carriage and handling? (V)"
+Ship’s Structure,8.14,"Has as a cargo loading/unloading plan providing a detailed sequence of cargo and ballast transfer been prepared, understood, and signed off by the master and deck officers? (V)"
+Ship’s Structure,8.15,Is an adequate record of all cargo operation activities maintained during loading and unloading? (V)
+Ship’s Structure,8.16,Have details of cargo care during the voyage been adequately recorded? (V)
+Ship’s Structure,8.17,"Are the dangers associated with oxygen depletion of cargo understood by officers and crew, and have reasonable precautions been taken during routine inspections of the cargo, when entering the holds and adjacent spaces? (V)"
+Ship’s Structure,8.18,"If coal cargo is being carried, was the ship equipped with appropriate instruments for measuring the temperature of cargo, monitoring the atmosphere of the cargo hold and checking the pH value of cargo bilge sample? (V)"
+Ship’s Structure,8.19,Is any special emergency equipment required by IMSBC on board(as applicable) and in a state of readiness during the cargo operation? (V)
+Ship’s Structure,8.1,Has the vessel manager provided policy statements and relevant publications for the safe carriage and handling of grain in bulk? (V)
+Ship’s Structure,8.2,Has appropriate information about the cargo and its characteristics been provided to the master or master’s representative prior to loading? (V & M)
+Ship’s Structure,8.3,Has the grain cargo been examined and sampled during loading to ensure that the apparent conditions meet the requirements as described in the documentation and is there recorded evidence of regular monitoring where applicable? (V)
+Ship’s Structure,8.4,Is the approved document of authorisation and grain stability booklet (Grain Loading Manual) provided? (M)
+Ship’s Structure,8.5,"If the document of authorisation was not provided, can the master demonstrate the compliance of the ship’s stability with the Grain Code? (V)"
+Ship’s Structure,8.6,Is a Class-approved loading computer or programme in use and has its operational accuracy been regularly tested? (V)
+Ship’s Structure,8.7,Are regular monitoring of stress and stability being maintained throughout cargo operations and is the vessel’s condition being maintained within design limits? (V)
+Ship’s Structure,8.8,"Are there procedures in place for loading, ballasting and de-ballasting of the ballast holds? (V)"
+Ship’s Structure,8.9,Are there guidelines and procedures for hold cleaning in place (V)
+Ship’s Structure,8.10,"Have cargo holds been grain or hospital cleaned, where applicable, and has a ship’s hold inspection certificate been issued by a 3rd party prior to loading grain? (V & M)"
+Ship’s Structure,8.11,Is the vessel free of any limitations or restrictions specified in the loading manual or trim and stability booklet? (V)
+Ship’s Structure,8.12,"Are officers familiar with the risk, hazard and carriage requirements of grain cargo on board the ship? (V)"
+Ship’s Structure,8.13,Have hatch covers been ultrasonically tested for weather tightness before loading? (V & M)
+Ship’s Structure,8.14,"Has the master been provided with clear instructions regarding any fumigation, prior to arrival at the load port? (V)"
+Ship’s Structure,8.15,Has the vessel been provided with procedures and contingencies regarding fumigation of cargo holds and are the master and chief officer familiar with the procedure? (V)
+Ship’s Structure,8.16,"If the vessel is carrying cargo under fumigation, are the requirements of the IMO recommendations on safe use of pesticides being met? (V)"
+Ship’s Structure,8.17,Do on-board safety requirements for fumigation comply with sub-section 3.3.2.7 of the IMO recommendation on the safe use of pesticides? (V)
+Ship’s Structure,8.18,Are the master’s appointed representatives for fumigation trained and is there evidence to show that they have been effectively performing duties associated with this task? (V)
+Ship’s Structure,8.19,Have pre-fumigation and post fumigation statements been provided to the master by the fumigator-in-charge? (V)
+Ship’s Structure,8.20,Are visible means provided to prevent access to all entrances containing fumigant and other spaces that are considered unsafe to enter after fumigation? (V)
+Ship’s Structure,8.21,"Has the Voyage Safety Plan (VSP), including the checklist for fumigation during the voyage, been discussed with and signed by the master prior to sailing to the discharge port? (V)"
+Ship’s Structure,8.22,"Has as a cargo loading/unloading plan providing a detailed sequence of cargo and ballast transfer been prepared, understood, and signed off by the master and deck officers? (V)"
+Ship’s Structure,8.23,Are procedures in place for entering any cargo holds sealed for fumigation in transit? (V)
+Ship’s Structure,8.24,Has the master informed the appropriate authorities of the country of destination about the fumigation? (V)
+Ship’s Structure,8.25,Has the vessel been provided with a gas free certificate at the discharge port prior to commencement of discharge operation? (V)
+Ship’s Structure,8.26,Are records maintained of fumigation operations? (V)
+Ship’s Structure,8.27,"Are necessary instruments (with spares) to determine the dew point provided, maintained in good condition and are there records of the calibration of such instruments? (V)"
+Ship’s Structure,8.28,Are the master and / or chief officer familiar with the rules for deciding to ventilate the cargo holds during the voyage? (V)
+Ship’s Structure,8.29,"Is ventilation of cargo holds, where required, being carried out and recorded? (V)"
+Ship’s Structure,8.30,Is there evidence of a satisfactory grain stability calculation for the last voyage? (M)
+Ship’s Structure,8.31,"Has a cargo loading/unloading plan providing detailed sequences of cargo and ballast transfer been prepared, understood, and signed off by the deck officers? (V)"
+Ship’s Structure,8.32,Are the hold bilges cleaned prior to loading and have all hold openings been made grain tight? (V)
+Ship’s Structure,8.33,"Do records on board verify that cargo lights in holds, where fitted, were properly isolated before cargo was loaded? (V)"
+Ship’s Structure,8.34,Is an adequate record of all cargo operation activities maintained during loading and unloading? (V)
+Ship’s Structure,8.35,"Are the dangers associated with oxygen depletion of grain cargo understood by officers and crew, and have reasonable precautions been taken during routine inspections of the cargo, when entering the holds and adjacent spaces? (V)"
+Ship’s Structure,8.1,"Are policy statements and relevant publications for the safe stowage, securing and handling of the cargo unit and timber available on board? (V)"
+Ship’s Structure,8.2,Has appropriate information about the cargo and its characteristics been provided to the master or master’s representative prior to loading? (V)
+Ship’s Structure,8.3,"If dangerous goods are carried in packaged form, have appropriate documents been provided to the vessels? (V)"
+Ship’s Structure,8.4,Are procedures for safe lashing and securing operations incorporated in the ship’s SMS? (M)
+Ship’s Structure,8.5,Is an approved ship-specific Cargo Securing Manual available and are officers thoroughly familiar with the contents of the manual? (V)
+Ship’s Structure,8.6,Are records maintained of the regular inspection and maintenance of the cargo-securing devices on board the ship? (V)
+Ship’s Structure,8.7,Are there procedures for the removal of damaged lashing devices from service? (V)
+Ship’s Structure,8.8,Is there evidence to show that samples of the timber cargoes are being weighed during loading and what is the actual weight compared to the weight stated by the shipper? (V)
+Ship’s Structure,8.9,"If the vessel is a timber carrier, have up to date lashing plans for each stowage and securing arrangement been incorporated in the Cargo Securing Manual? (V)"
+Ship’s Structure,8.10,"If the vessel is a timber carrier, has a lashing plan according to the ship’s Cargo Securing Manual been prepared? (V)"
+Ship’s Structure,8.11,"Has a pre-stowage plan been prepared prior to the vessel’s arrival at the load port, taking into account any deck cargo and anticipated stability throughout the voyage? (V)"
+Ship’s Structure,8.12,"Are officers aware of the strength limits of tank tops, tween decks, hatch covers and weather decks with regards to safe cargo stowage and is this information posted in the ship’s office/ ballast control room? (V)"
+Ship’s Structure,8.13,Have pre-stowage and stowage plans been prepared and completed effectively? (V)
+Ship’s Structure,8.14,"Is there evidence to show that evaluation of forces acting on the cargo unit have been calculated, and correct cargo-securing devices are being used to secure the cargo to the ship? (V)"
+Ship’s Structure,8.15,Have personnel engaged in cargo securing operations been provided with relevant training and familiarisation? (V)
+Ship’s Structure,8.16,"If the vessel is carrying timber deck cargo, are relevant regulations of the applicable Load-Line Convention for stowage and securing of timber as prescribed in the ship’s Cargo Securing Manual being followed? (V)"
+Ship’s Structure,8.17,"If the vessel is carrying timber, are instructions for ballast water exchange operations for the intended voyage available in the Ballast Water Management Plan? (V)"
+Ship’s Structure,8.18,Can timber deck cargo be jettisoned into the sea in a controlled manner in an emergency? (V)
+Ship’s Structure,8.19,"If the vessel is a non-cellular ship, have the containers been stowed correctly on deck? (V)"
+Ship’s Structure,8.20,Is there a procedure for monitoring the temperature of refrigerated containers and are records maintained? (V)
+Ship’s Structure,8.21,"If refrigerated containers are carried, are sufficient spare parts available on board? (V)"
+Ship’s Structure,8.22,"If refrigerated containers are carried, is the electric power supply permanently installed from the engine room and are the ship’s electrical distribution system and electric container sockets in good condition and undamaged? (V)"
+Ship’s Structure,8.23,Are pre-loading/acceptance procedures for the carriage of vehicles on board a ro-ro cargo ship incorporated in the SMS? (V)
+Ship’s Structure,8.24,Is the ro-ro cargo ship equipped with CCTV remote monitoring to monitor the vehicle decks? (V)
+Ship’s Structure,8.25,"Is the ro-ro cargo ship drainage system in good order, tested regularly and are effective measures in place to prevent blocking of drains? (V)"
+Ship’s Structure,8.26,Is the ro-ro cargo ship provided with an approved Operating and Maintenance Manual (OMM)? (V)
+Ship’s Structure,8.27,"Are procedures in place to carry out function and tightness testing of bow, inner, side shell, stern doors and main to lower deck cargo elevators of ro-ro cargo ships and is there evidence of regular testing? (V)"
+Ship’s Structure,8.28,Is an operation manual for the ventilation system in a ro-ro cargo space provided and do records on board verify that the air quality is tested? (V)
+Ship’s Structure,8.29,"Is the ro-ro ship fitted with an automatic system to control air quality in the cargo holds and are records of inspection, testing, calibration, and maintenance of the system being maintained? (V)"
+Ship’s Structure,8.30,Are vehicles on the ro-ro car decks safely stowed and secured? (V)
+Ship’s Structure,8.31,Has the vessel been provided with procedures and contingencies with regards to fumigation of cargo holds and are the master and chief officer familiar with the procedure? (V)
+Ship’s Structure,8.32,"Have the air conditioning intakes for the accommodation, the engine room and other spaces been set to prevent the possibility of drawing in fumigant gas? (V)"
+Ship’s Structure,8.33,"Are necessary instruments (with spares) to determine the dew points provided, maintained in good condition and are there records of calibration of such instrument? (V)"
+Ship’s Structure,8.34,Are master and/or chief officer familiar with the rules for deciding when to ventilate the cargo holds during the voyage? (V)
+Ship’s Structure,8.35,Is ventilation of cargo holds being carried out and recorded? (V)
+Ship’s Structure,8.36,Are the hold bilges cleaned prior to loading and are cleaning and checks being recorded? (V)
+Ship’s Structure,8.37,Do records on board verify that cargo lights in holds were properly isolated before cargo was loaded? (V)
+Ship’s Structure,8.38,Is an adequate record of all cargo operation activities maintained during loading and unloading? (V)
+Ship’s Structure,8.1,"Is the vessel provided with operator’s policy statements and relevant publications for the safe stowage, securing and handling of the container? (V)"
+Ship’s Structure,8.2,Has appropriate cargo information been provided to the vessel prior to loading? (V)
+Ship’s Structure,8.3,"If dangerous goods are carried in a container, have appropriate documents been provided to the vessel, and is safety in relation to stowage of declared dangerous goods and higher risk cargoes being considered? (V & M)"
+Ship’s Structure,8.4,Is there a procedure for checking the container’s seals and is there documented evidence of compliance? (V)
+Ship’s Structure,8.5,"Is cargo on flat racks, where applicable properly secured? (V)"
+Ship’s Structure,8.6,Is the verified gross mass communicated in shipping documents sufficiently in advance to the master? (V)
+Ship’s Structure,8.7,Have containers carried on deck or on hatches been stowed in the fore-and-aft direction? (V)
+Ship’s Structure,8.8,Are containers stowed in block stowage? (V)
+Ship’s Structure,8.9,Are procedures for safe lashing and securing operations of containers being incorporated in the ship’s SMS? (V)
+Ship’s Structure,8.10,"Is an approved ship’s specific Cargo Securing Manual available, and are officers thoroughly familiar with the contents of the manual and is the lashing plan compatible with the design of the vessel? (V)"
+Ship’s Structure,8.11,Are records maintained of the regular inspection and maintenance of the cargo-securing devices on board the ship? (V)
+Ship’s Structure,8.12,Is there a sufficient quantity of reserve cargo- securing devices on board? (V)
+Ship’s Structure,8.13,Is the Cargo Safe Access Plan (CSAP) prepared and was it followed on board? (V)
+Ship’s Structure,8.14,Are appropriate securing points being used for cargo securing and is there recorded evidence of regular inspection and maintenance of them? (V)
+Ship’s Structure,8.15,Are there procedures for reporting and removal of damaged lashing devices from service and are there records to demonstrate that damaged lashing devices have been removed from service? (V)
+Ship’s Structure,8.16,Is a Class-approved loading computer or programme in use and has its operational accuracy been regularly tested? (V)
+Ship’s Structure,8.17,Was the pre-loading plan forwarded to the ship prior to loading and is there evidence to show that the ship’s loading plan was updated and reviewed by the chief officer prior to loading? (V)
+Ship’s Structure,8.18,Is there recorded evidence to show that the pre-loading plan has been checked for ‘heavy’ container stacks? (V)
+Ship’s Structure,8.19,Has the vessel avoided loading of heavy containers over light or at the top of a stack in a deck stow? (V)
+Ship’s Structure,8.20,Is there recorded evidence to show that the lashing pattern from the Cargo Securing Manual has been provided to the terminal and is the information for the lashing pattern posted at the ship’s access? (V)
+Ship’s Structure,8.21,Had the Ballast Water Management Plan for the present port stay been executed? (V)
+Ship’s Structure,8.22,Is there documented evidence of carrying out a spot check of actual loading against loading plan? (V)
+Ship’s Structure,8.23,Is there documented evidence of signing off completed lashing per bay and is all lashing gear used compatible with the lashing plan? (V)
+Ship’s Structure,8.24,Is the bridge visibility condition for the next port confirmed? (V)
+Ship’s Structure,8.25,Is there evidence to show that evaluation of forces acting on the containers have been calculated and the correct cargo-securing devices are being used to secure the containers to the ship (V)
+Ship’s Structure,8.26,Is there documented evidence that lashings were tightened after departure once the lashings and containers settled in? (V)
+Ship’s Structure,8.27,Have personnel engaged in cargo securing operations been provided with relevant training and familiarisation? (V)
+Ship’s Structure,8.28,"Is the vessel equipped with sufficient portable radio equipment for use and has a direct radio communication capability been stablished between the terminal (planner, foreman, and watchman) and the ship duty’s officer? (V)"
+Ship’s Structure,8.29,"Has an IMDG spotting plan been prepared, updated, and made available for emergency preparedness? (V)"
+Ship’s Structure,8.30,Is there a procedure for monitoring the temperature of refrigerated containers and are records maintained? (V)
+Ship’s Structure,8.31,"If refrigerated containers are carried, are sufficient spare parts available on board? (V)"
+Ship’s Structure,8.33,Are officers familiar with the exothermic chain reaction and the stowage and segregation requirements for calcium hypochlorite in containers? (V)
+Ship’s Structure,8.34,Is an adequate record of all cargo operation activities maintained during loading and unloading? (V)
+Ship’s Structure,8.1,Is the vessel provided with operator’s procedures for safe operation of the self- unloading system? (V)
+Ship’s Structure,8.2,Is the vessel provided with self-unloading isolation procedures? (V)
+Ship’s Structure,8.3,Have personnel engaged in operation of the self-unloading system been provided with relevant training and familiarisation? (V)
+Ship’s Structure,8.4,"Are the ship’s crew aware of the safe operating requirements of tunnel conveyor watertight bulkhead doors and/or watertight doors in shuttle conveyor room, where applicable, and is a record of inspections and maintenance available on board? (V)"
+Ship’s Structure,8.5,Are the officers and ratings aware of the location of the emergency stop devices; are the emergency stop devices in good order and is there recorded evidence of regular testing? (V)
+Ship’s Structure,8.6,Are light fittings in the tunnel conveyor Ex‘d’ rated and in good condition? (V)
+Ship’s Structure,8.7,Are lights and warning devices of the self-unloading system regularly tested and the result recorded? (V)
+Ship’s Structure,8.8,Is there a procedure for suppression of dust during cargo operations? (V)
+Ship’s Structure,8.9,Is the belt cleaning system/scrapper in good order and maintained as per manufacturer recommendation and is there evidence to show that the belt cleaners have been inspected regularly for proper function? (V)
+Ship’s Structure,8.10,"Are the belt speed- sensors, belt scales and slip detecting device, where applicable, in good order and maintained as per manufacturer recommendations? (V)"
+Ship’s Structure,8.11,Are the cargo hold discharge gates and water-tight doors clearly marked to indicate the hold and spaces they serve? (V)
+Ship’s Structure,8.12,Has the hydraulic oil of the self-unloading system been tested regularly for contamination and deterioration as per manufacturer recommendation? (M)
+Ship’s Structure,8.13,"Are the tunnel-conveyor emergency stop, speed switch, and belt misalignment switch in good order and inspected regularly? (V)"
+Ship’s Structure,8.14,Is the tunnel-conveyor hydraulic system arrangement in good condition and free from oil leakage? (V)
+Ship’s Structure,8.15,"Are boom dust cover, spill tray and telescopic chute arrangements, where applicable, adequate? (V)"
+Ship’s Structure,8.16,"Has the sequence of the cargo plan been followed by the cargo-gate operators, and is the movement of the cargo-gate operators reported to the duty officer and is there evidence to confirm that movement of cargo-gate operators has been monitored to ensure compliance with the cargo plan? (V)"
+Ship’s Structure,8.17,Is the vibrator system in good order and is there recorded evidence of regular inspection as per manufacturer recommendations? (V)
+Ship’s Structure,8.18,"Is the lift conveyor in good order, free of corrosion, damage and leakage and is the spillage chute of the lift conveyor, where applicable, collecting the cargo spillage effectively? (V)"
+Ship’s Structure,8.19,"Are walk-rounds of the entire system carried out regularly, recorded and are the staff conducting the rounds aware of their duties? (V)"
+Ship’s Structure,8.20,Is the condition of belts’ tension checked during cargo operations and is there evidence to show that the belt tension and alignment is inspected regularly for proper function? (V)
+Ship’s Structure,8.21,Are the tunnel trash pumping and disposal arrangements in good order and is the overboard valve provided with a notice warning against discharge of oil or oily mixture? (V)
+Ship’s Structure,8.22,"Is a water-level alarm system provided for the tunnel bilge well, and is the alarm system regularly tested and the result recorded? (V)"
+Ship’s Structure,8.23,"Are the emergency stop switch, misalignment switch and speed switch for the boom conveyor and/or shuttle conveyor, where applicable, in good order and are the switches regularly inspected and the result recorded? (V)"
+Ship’s Structure,8.24,"Is the boom conveyor in good order, free of corrosion, damage, and oil leakage? (V)"
+Ship’s Structure,8.25,"Are the boom conveyor and /or shuttle conveyor, where applicable, walkway lights and, floodlights in good working condition? (V)"
+Ship’s Structure,8.26,"Is all electric equipment including cable box, cable run and cable tray and shore interlock connection system on the boom conveyor in good order? (V)"
+Ship’s Structure,8.27,Are the officers aware of the slewing/swing out limits of the boom conveyor/shuttle conveyor and is there recorded evidence of verification of function of slew/luff limit switch? (V)
+Ship’s Structure,8.28,Are the idlers and return rolls of the self-unloading system free from build-up material and are they rotating freely? (V)
+Ship’s Structure,8.29,"Is the ventilation system of the tunnel area in order, and is there documented evidence to confirm that the ventilators are working to their operational capacity? (V)"
+Ship’s Structure,8.30,Is the tunnel area clean free from refuse and is the overall standard of housekeeping satisfactory? (V)
+Ship’s Structure,8.31,"Is the vessel is provided with guidelines for ‘the prevention, early detection and suppression of fire in the cargo conveyor tunnel’ and are the crew familiar with the guidelines? (V)"
+Ship’s Structure,8.32,Does the vessel stability information provide guidance for shipboard personnel on the effect of flooding the tunnel? (V)
+Ship’s Structure,8.33,"If the electric voltage power of vessel is greater than 1000 volts (high voltage), is staff suitably trained? (V)"
+Ship’s Structure,8.34,"Is the vessel equipped with sufficient intrinsically safe portable radios for use inside the tunnel and, are the radio ‘dead zones’ within tunnel identified and safeguards put in place? (V)"
+Ship’s Structure,9.1,"Are the cargo holds, including the underside of hatch covers, free of loose rust scale and paint flakes? (V)"
+Ship’s Structure,9.2,Is the master/chief officer suitably trained in the inspection and maintenance of hatch covers? (V)
+Ship’s Structure,9.3,Are adequate procedures in place for carrying out hose and / or ultrasonic testing of hatch covers and is documented evidence of such testing available? (V)
+Ship’s Structure,9.4,"Are the compression bars and the coaming tops’ water channels clean, free of corrosion and maintained in good condition? (V)"
+Ship’s Structure,9.5,"Are the drain holes of coaming clean, the inboard coaming faces free from any vertical rust staining and are the non-return valves in good condition? (V)"
+Ship’s Structure,9.6,Are quick-acting cleats and holders all in place and in good working condition with the rubber washers flexible and free from paint and crack? (V)
+Ship’s Structure,9.7,"If the hatch panel side and end plates are in steel-to-steel contact with the coaming tops when closed, are the coaming tops free from grooving or wear? (V)"
+Ship’s Structure,9.8,"If the hatch covers are supported by bearing pads, chocks, or support blocks, are they free from wear or damage? (V)"
+Ship’s Structure,9.9,Are the side and cross-joint rubber seals in good condition? (V)
+Ship’s Structure,9.10,Are hatch cover panels free of misalignment? (V)
+Ship’s Structure,9.12,"Are the cross-joint seal retaining channels and the cross-joint compression bar straight, free of corrosion and damage, and are the channel supports and brackets in good condition? (V)"
+Ship’s Structure,9.13,"Are the following parts of the hatch covers, where applicable, all in good order and do they appear to be well maintained? (V)"
+Ship’s Structure,9.14,"Are cross-joint wedges and their wedge bridge (where fitted) in place, operational and effective? (V)"
+Ship’s Structure,9.15,"If hatch covers are hydraulically operated, has the hydraulic oil been tested regularly for contamination and deterioration? (V & M)"
+Ship’s Structure,9.16,Are officers familiar with emergency hatch cover operation arrangements and is there evidence of effective training of personnel available on board? (V)
+Ship’s Structure,9.17,Has a thorough examination and load test of lifting appliances been carried out and is the record of the test and examination being maintained properly? (V & M)
+Ship’s Structure,9.18,"Are the hoist and luffing wires of cranes, where fitted, reported in good order and is there recorded evidence of regular inspection and maintenance? (V)"
+Ship’s Structure,9.19,"Are the main structures, foundation structures and mountings of the cargo cranes free of apparent defect or damage? (V)"
+Ship’s Structure,9.20,"Is the machinery of the cargo crane, including controls in the operator’s cab inspected, tested, and maintained as per manufacturer’s recommendations? (V)"
+Ship’s Structure,9.21,Are the ship’s grabs being maintained as per manufacturer recommendation and have the maintenance requirements been incorporated in the PMS? (V)
+Ship’s Structure,9.22,Are the loose gears of lifting appliances marked clearly and are the certificates of the loose gears available and traceable on board? (V)
+Ship’s Structure,9.1,Has the vessel been provided with procedures for the safe operation of the gantry crane? (V)
+Ship’s Structure,9.2,"If gantry cranes are used for lifting hatch covers, are the hydraulic cylinders used for lifting the hatch covers free from leaks and are the hatch covers being marked correctly for precise positioning of the lifting beams and hooks where applicable? (V)"
+Ship’s Structure,9.3,"Are check lists in place and being used to cover the check before use, starting the crane and releasing the crane from sea stowage? Is a procedure in place for safe travelling of the gantry crane on deck and are crew familiar with the procedure? (V)"
+Ship’s Structure,9.4,Is the vessel provided with a specific isolation procedure for the gantry cranes? (V)
+Ship’s Structure,9.5,Are the visual and audible warning signals provided for gantry cranes in the deck area in good order and tested regularly? (V)
+Ship’s Structure,9.6,Are the safety devices of gantry cranes in good order and is there recorded evidences of regular testing? (V)
+Ship’s Structure,9.7,Are the main hoist overload protection and unbalance detection systems in good order and tested as per manufacturer’s recommendation? Are officers aware of the safe operation parameters of gantry cranes and is this information posted in the ship’s office/ ballast control room? (V)
+Ship’s Structure,9.8,"Is each gantry cranes provided with a storm locking arrangement and, does the arrangement appeared to be well maintained? (V)"
+Ship’s Structure,9.9,Are the gantry cranes electrically bonded and earthed to the vessel’s structure? (V)
+Ship’s Structure,9.10,"Are the mechanical brakes for the gantry crane motions in good order, tested regularly, and recorded? (V)"
+Ship’s Structure,9.11,"Are the anti-collision and deceleration devices of the gantry cranes in good order and tested regularly, and are track wheels at the deck level fitted with foot guards? (V)"
+Ship’s Structure,9.12,"If the operator’s cabin of a gantry crane travels with the horizontal movement of a load, is the crane operator able to leave the cabin safely in case of power failure or another emergency? (V)"
+Ship’s Structure,9.13,"Are portable fire extinguishers located around the gantry cranes and in good condition, and are they maintained regularly? (V)"
+Ship’s Structure,9.14,Are the driver’s cabs and local operating stations of the gantry cranes maintained in good condition? (V)
+Ship’s Structure,9.15,"Are the retractable jib roofs, sides’ curtains and their securing arrangement being maintained in good condition, are checklists for the operation of the jib roof and curtains available and is the evidence of their consistent use? (V)"
+Ship’s Structure,9.16,"Is the telephone system provided for communication between driver’s cab, electrical control room, hatch cover control station and deck level in good order and is there evidence of regular testing and maintenance? (V)"
+Ship’s Structure,9.17,"If a platform has been provided on the top of the crane roof for helicopter winching operations, does the area comply with the requirements of ICS guidelines? (V)"
+Ship’s Structure,9.18,"If the gantry crane is equipped with a pilot ladder hoist, is the system being by-passed and not in use? (V)"
+Ship’s Structure,9.19,"Have a Crane Monitoring System and a port/crane performance logger been provided, are they in good condition and regularly monitored? Are faults recorded in the fault log, verified and fault-finding rectification procedures recorded appropriately? (V)"
+Ship’s Structure,9.20,"Is the emergency pump for the operation of the crane maintained in good condition, are crew familiar with their duties in the using the emergency pump and are emergency drills being carried out? (V)"
+Ship’s Structure,9.21,"Is the steel structure of girders and trolleys free of deformation? Are the access and service platforms of the gantry cranes, including vertical ladders, ladders cages, rungs, stations and platforms being maintained, free of corrosion and in good order? (V)"
+Ship’s Structure,9.22,"Are the cranes’ transverse rail, rack, tooth-rack, travelling pinion and travelling wheel free of cracks, misalignment, and abnormal wear; and is there evidence of regular inspection and maintenance? (V)"
+Ship’s Structure,9.23,"Is there evidence to show that regular maintenance has been conducted on the AC motors, electromechanical brake, gear reducer and the blower motors? (V)"
+Ship’s Structure,9.24,Has the hydraulic oil of the gantry crane system been tested regularly for contamination and deterioration as per manufacturer recommendation? (V)
+Mooring Operations,10.1,"Has the company established guidelines and procedures for the inspection, maintenance and wear zone management of the mooring lines and are they being implemented? (V & M)"
+Mooring Operations,10.2,"Does the vessel’s manager carry out regular safe mooring campaigns, learning from near misses and accidents related to mooring operations and are these shared with the fleet? (V & M)"
+Mooring Operations,10.3,Are the certificates of mooring lines and mooring tails available on board? (V & M)
+Mooring Operations,10.4,Do mooring lines and mooring tails comply with industry guidelines and are they in good order? (V & M)
+Mooring Operations,10.5,Is there a procedure for testing the winch brake rendering setting and is it being tested regularly? (V & M)
+Mooring Operations,10.6,Are mooring lines correctly deployed and tended? (V)
+Mooring Operations,10.7,"Are there sufficient crew members on board to assist in the mooring operation, check and tend the mooring lines at regular intervals? (V)"
+Mooring Operations,10.8,"Are all mooring lines on winches correctly reeled on drums, and if made fast ashore, are winch brakes secured and winches out of gear? (V)"
+Mooring Operations,10.9,"On split drum winches, have the split drums been set up correctly after the completion of mooring operation? (V)"
+Mooring Operations,10.10,"If the mooring tails are used, have they properly connected to the main mooring lines in accordance with industry guidance? (V & M)"
+Mooring Operations,10.11,"Are the mooring ropes stowed clear of the deck and are mooring stations well lit, clean and free from oil leaks? (V)"
+Mooring Operations,10.12,Have heaving lines been constructed with a monkey’s fist at one end and are they free of any added weighting material? (V)
+Mooring Operations,10.13,Is the whole mooring deck area marked with clearly visible signage and considered a danger? (V)
+Mooring Operations,10.14,Are appropriate stoppers in use and are the mooring ropes turned up to bitts correctly? (V)
+Mooring Operations,10.15,"Do controls, linkages, operating levers, brake drums, brake linings and pins of winches appear to be in good order? (V)"
+Mooring Operations,10.16,"Are the pedestal fairleads, roller fairleads and other rollers free of grooving, well-greased and free to turn? (V)"
+Mooring Operations,10.17,"Are the fairleads, rollers, bitts chocks and other items of mooring equipment clearly marked with the relevant SWL? (V)"
+Mooring Operations,10.18,"Are the windlasses, anchors, locking bars and cables in good order, operating effectively and is their maintenance incorporated in the plan maintenance system? (V)"
+Mooring Operations,10.19,Have the anchors been tightly secured in the hawse pipe? (V)
+Mooring Operations,10.20,Are the chain locker doors firmly battened down and are the bitter end securing arrangements located outside the chain locker and accessible? (V)
+Mooring Operations,10.21,Is the master aware of the limitations of anchoring equipment? (V)
+Mooring Operations,10.22,Has the vessel been provided with a ship-specific emergency towing booklet? (V)
+Mooring Operations,10.23,"If the vessel’s deadweight is 120,000 or more, does it meet the Pilbara Ports Authority (PPA) requirements for towing?"
+Radio and Communication,11.1,Has a qualified person other than the master been designated to handle distress and safety radio communication? (V)
+Radio and Communication,11.2,"Is communication equipment, listed in the Record of Equipment attached to the Safety Radio Certificate or Safety Certificate (Form R or Form C), in good condition and has the GMDSS Logbook (the Radio Log) been maintained correctly and are daily, weekly and monthly tests being carried out? (V)"
+Radio and Communication,11.3,"Has the Satellite EPIRB been correctly installed, tested and maintained? (V & M)"
+Radio and Communication,11.4,Is the most current edition and up to date List of Radio Signals available on board? (V)
+Radio and Communication,11.5,"Is the vessel equipped with sufficient portable two-way UHF radios, for use in general on-board operations? (V)"
+Radio and Communication,11.6,Are Search and Rescue Radar Transponders (SARTs) in good order and tested regularly? (V)
+Radio and Communication,11.7,Are survival craft portable VHF radios in good order and charged? (V)
+Radio and Communication,11.8,"Is the AIS static, dynamic and voyage data up to date and has an AIS annual test been performed and the record available on board? (V & M)"
+Radio and Communication,11.9,Is there a Shore-Based Maintenance Agreement in place to fulfil the maintenance requirements? (M)
+Security,12.1,Is access to the ship being controlled by an adequate deck watch? (V)
+Security,12.2,Has a Ship Security Officer (SSO) been appointed and trained adequately to perform the duties of SSO and have all crew received security-related training and instructions? (V)
+Security,12.3,Are deck officers familiar with the function and use of the Ship Security Alert System and is the Ship Security Alert System being tested regularly? (V)
+Security,12.4,"If the vessel transits or may transit a high-risk piracy area, are updated security charts and publications being provided? (V)"
+Security,12.5,"If the vessel transited or may transit an area with a high risk of piracy, has a voyage risk assessment been produced? (V)"
+Security,12.6,Have preventive measures been taken by the master and crew during the stay in port and prior to departure to prevent stowaways? (V)
+Security,12.7,Are cyber security policies and procedures being incorporated in the safety management system and was the cyber security management system evaluated and certified by Class? (V)
+Security,12.8,"Are measures in place for controlling the use of removable media such as USB memory sticks, CDs, DVDs, and diskettes on shipboard computers? (V)"
+Machinery Space,13.1,"Are adequate engineering procedures, instructions and guidelines included in the SMS? (V)"
+Machinery Space,13.2,Is an engineer manning matrix in place and are the responsibilities of watch standing engineers and engine ratings clearly defined and posted in the Engine Control Room? (V)
+Machinery Space,13.3,"Have specific standing orders been prepared by the chief engineer and have these orders along with the night order book been read, understood, and signed by the watch standing engineers, engine crew and electrical engineer, where applicable? (V & M)"
+Machinery Space,13.4,"If the vessel has been certified for periodically unattended machinery spaces (UMS), is the machinery space being operated in that mode? (V)"
+Machinery Space,13.5,"If the engine room is not being operated in UMS mode, are there sufficient engineers and crew on board for safe operation of the machinery space? (V)"
+Machinery Space,13.6,"Have the entry requirements to the engine room when operating in UMS mode been documented, posted at the entrance to the engine room and understood by all crew? (V)"
+Machinery Space,13.7,"If an engine room dead man alarm (personnel alarm) is provided, is it being set correctly and in good order? (V)"
+Machinery Space,13.8,"Is an engineer’s calling alarm system fitted and is it tested regularly, in good order and the results recorded? (V)"
+Machinery Space,13.9,Is the engine room logbook being properly maintained? (V)
+Machinery Space,13.10,Are procedures to recover essential equipment documented and posted in the engine room? (V)
+Machinery Space,13.11,Is an effective and up to date planned maintenance system available and being followed on board the vessel? (V & M)
+Machinery Space,13.12,Is critical equipment identified and are a sufficient spare part available as per the manufacturers’ recommendations? (V & M)
+Machinery Space,13.13,Are the major components of the main engine maintained as per manufacturer’s recommendations and records of periodic maintenance kept? (V)
+Machinery Space,13.14,Are the major components of the auxiliary engines maintained as per manufacturer’s recommendations and records of periodic maintenance kept? (V)
+Machinery Space,13.15,"Are the emergency escape routes clearly marked, free of obstruction and adequately lit? (V)"
+Machinery Space,13.16,Is the lighting illumination level in engine room space adequate (V)
+Machinery Space,13.17,"Is the emergency equipment tested, in good condition and the result recorded? (V)"
+Machinery Space,13.18,"Are engine room emergency stops for ventilation fans and the closing mechanism of ventilation supply and exhaust ducts clearly marked, in working condition, and do records indicate that they have been regularly tested? (V)"
+Machinery Space,13.19,Are engine exhausts and other hot surfaces effectively shielded against oil spray and are flanges and connections of flammable liquid pipelines adequately protected with guards and spray tape? (V)
+Machinery Space,13.20,"Is lagging and insulation, free of any significant oil impregnation ? (V)"
+Machinery Space,13.21,Are main engine bearing temperature monitors or crankcase oil mist detector(s) in good condition and regularly tested as per manufacturer instruction? (V)
+Machinery Space,13.22,"Are the main, emergency switchboards and local starter panels surrounded by non- conducting mat and are the mats in good order? (V)"
+Machinery Space,13.23,Are the self-closing valves and gauge glasses being maintained and in good order? (V)
+Machinery Space,13.24,Are self-closing sounding devices in good order and closed? (V)
+Machinery Space,13.25,"Where moving machinery presents a hazard, is it guarded effectively? (V)"
+Machinery Space,13.26,"Are the protective guards, shields and emergency stop of the engine room workshop tools being maintained in good order? (V)"
+Machinery Space,13.27,"Is the engine room crane and other lifting gear regularly inspected, tested, and maintained? (V & M)"
+Machinery Space,13.28,"Are all spare parts and loose gear in the machinery spaces, stores and steering compartment properly secured? (V)"
+Machinery Space,13.29,Is the standard of housekeeping in the machinery space and steering gear room satisfactory and are they clean and free from obvious leaks? (V)
+Machinery Space,13.30,Are engine room bilges clean and free of oil and sediment? (V)
+Machinery Space,13.31,"Is the bilge high level alarm system in good order, regularly tested and are records of test maintained? (V)"
+Machinery Space,13.32,"Are the sea chest, seawater pumps and related sea water lines in good order, free of hard rust and temporary repairs? (V)"
+Machinery Space,13.33,"Is the following machinery/equipment, where applicable, in good order and well maintained? (V)"
+Machinery Space,13.34,"Is the pipe work in the machinery space, including but not limited to steam, fuel, lubricating oil, sewage, drain and air lines well maintained, in good condition and free of any temporary repair? (V)"
+Machinery Space,13.35,Are engineers familiar with operation of the main engine from the local manoeuvring control position? (V)
+Machinery Space,13.36,Are crew familiar with the starting procedure for the emergency generator and how to put power on the emergency switch board? (V)
+Machinery Space,13.37,"If the starting source of the emergency generator relies on a single starter motor, has a spare starter motor been provided? (V)"
+Machinery Space,13.38,"If an emergency generator is not fitted, are engine room emergency batteries in good order, fully charged and capable of supplying the designed power load up to a minimum 18 hours? (V)"
+Machinery Space,13.39,Is the earth fault monitoring equipment of the main and emergency switchboards operational and are they free of faults? (V)
+Machinery Space,13.40,Is the emergency steering gear drill being carried out every three months? (V)
+Machinery Space,13.41,Is the emergency reserve tank of the steering gear system fully charged? (V)
+Machinery Space,13.42,Is a heading indicator and communication system provided in the steering gear room and are they in good order? (V)
+Machinery Space,13.43,Is the emergency steering position rudder angle indicator in good order and clearly marked in red and green? (V)
+Machinery Space,13.44,Is the steering gear compartment clear of obstructions and loos equipment properly secured? (V)
+Machinery Space,13.45,"Are suitable handrails, gratings or other non-slip surfaces provided for the steering gear compartment? (V)"
+General Appearance - Hull and Superstructure,14.1,"Is the ship’s hull clean, free of significant corrosion, extensive coating breakdown and marine growth? (V)"
+General Appearance - Hull and Superstructure,14.2,"Are the following permanent markings on the ship’s hull, where applicable, plainly visible and painted in a contrasting colour? (V)"
+General Appearance - Hull and Superstructure,14.3,Are the weather decks free of loose rust scale and maintained in a satisfactory condition? (V)
+General Appearance - Hull and Superstructure,14.4,"Are the pipes on deck free of significant corrosion, pitting, soft patches or temporary repair and maintained in good condition? (V)"
+General Appearance - Hull and Superstructure,14.5,"Are all the watertight doors, weathertight doors, portholes, and wheelhouse windows maintained in good order? (V)"
+General Appearance - Hull and Superstructure,14.6,Are the vents and air pipes on weather decks maintained in good order and are they clearly marked to indicate the compartment they serve? (V)
+General Appearance - Hull and Superstructure,14.7,Is the cosmetic appearance of the superstructure satisfactory? (V)
+General Appearance - Hull and Superstructure,14.8,Are the hatch numbers clearly indicated and correctly placed? (V)
+General Appearance - Hull and Superstructure,14.9,"Are the deck lights, emergency lights and hold lights (where fitted) in good order? (V)"
+General Appearance - Hull and Superstructure,14.10,Are portable and fixed cargo lights used for illumination of cargo holds inspected regularly and maintained in good condition? (V)
+General Appearance - Hull and Superstructure,14.11,"Is the condition of electrical equipment including switches, sockets, junction boxes, plugs, conduits and wiring on weather decks satisfactory? (V)"
+General Appearance - Hull and Superstructure,14.12,"Are the explosion-proof lights in paint lockers, acetylene stores or similar spaces in good condition? (V)"
+General Appearance - Hull and Superstructure,14.13,Are the stores located inside the accommodation and on the weather decks clean and tidy? (V)
+General Appearance - Hull and Superstructure,14.14,Are dryers inside the laundries clear of any build-up of lint? (V)
+General Appearance - Hull and Superstructure,14.15,"Are galley appliances, audio-visual equipment, and other electrical equipment inside the accommodation in good order? (V)"
+General Appearance - Hull and Superstructure,14.16,"Are the door seals, catches and alarm system of the refrigerated space in good order? (V)"
+General Appearance - Hull and Superstructure,14.17,"Is the elevator, where fitted, inspected, tested and in good order? (V)"
+General Appearance - Hull and Superstructure,14.18,"If provided, is the ship’s hospital properly equipped, clean, hygienic and for medical use only? (V & M)"
+Health and Welfare of Seafarers,15.1,Do the Seafarer Employment Agreements (SEA) comply with the requirements of MLC 2006 and do the crew salaries meet or exceed the current ILO Minimum Wage Scale? (V & M)
+Health and Welfare of Seafarers,15.2,"Are the accommodation spaces safe, provided to a respectable level of health and hygiene and regularly inspected, including checks of ventilation, noise, heating, lighting, and sanitation? (V)"
+Health and Welfare of Seafarers,15.3,Are the ship’s staff provided with adequate recreation facilities on board the ship? (V)
+Health and Welfare of Seafarers,15.4,Has the master been provided with a monthly welfare budget? (V)
+Health and Welfare of Seafarers,15.5,Are seafarers being provided with sufficient food and water free of charge and does the cook hold appropriate qualifications? (V)
+Health and Welfare of Seafarers,15.6,Are ship’s staff provided with appropriate medical care and health promotion programmes? (V)
+Health and Welfare of Seafarers,15.7,"Is there evidence to confirm that visits to a qualified medical doctor or dentist have been arranged without delay in ports of call, where required? (V)"
+Health and Welfare of Seafarers,15.8,"Are individual monthly statements provided to all seafarers on board, detailing their monthly wage and any authorised deductions such as allotments? (V)"
+Health and Welfare of Seafarers,15.9,Is there a complaints procedure on board and are seafarers aware of this procedure? (V)
+Health and Welfare of Seafarers,15.10,Is the vessel provided with adequate policies on mental health and mental disorders? (V)
+Health and Welfare of Seafarers,15.11,"Are seafarers provided with free access to external sources of support, whom they can contact in confidence while on board (V)"
+Health and Welfare of Seafarers,15.12,Has company provided training for on-board key personnel in recognising signs of mental health problems? (V)
+Health and Welfare of Seafarers,15.13,Is the vessel provided with a practical guide regarding the management of death at sea?
+Ice or Polar Water Operations,16.1,Is the vessel provided with an approved ship-specific Polar Water Operation manual or an Ice Operation manual? (V)
+Ice or Polar Water Operations,16.2,Is the master aware of the operational limitations specified in the Polar Ship Certificate? (V)
+Ice or Polar Water Operations,16.3,"Is the vessel appropriately manned by adequately qualified, trained, and experienced personnel? (V)"
+Ice or Polar Water Operations,16.4,Is polar water operation incorporated in the approved SOPEP manual? (V)
+Ice or Polar Water Operations,16.5,Is the vessel provided with a means of detecting floating ice? (V)
+Ice or Polar Water Operations,16.6,Is the vessel able to receive up-to-date information including ice reports for safe navigation? (V)
+Ice or Polar Water Operations,16.7,Are main engine sea chests provided with steam heating systems and is a record of check available? (V)
+Ice or Polar Water Operations,16.8,Are personnel provided with appropriate protective equipment suitable for sub- freezing temperature? (V)
+Ice or Polar Water Operations,16.9,Are the accommodation spaces provided with adequate heating systems? (V)
+Ice or Polar Water Operations,16.10,Is the vessel equipped with suitable material and / or equipment for cleaning the ice and snow  from critical areas? (V)
+Ice or Polar Water Operations,16.11,Is effective vision enhancement equipment provided on the Navigation Bridge? (V)
+Ice or Polar Water Operations,16.12,"Is exterior electronic equipment, such as communication transmitters / receivers exposed to rotating radar scanners and fog horns protected from sub-freezing temperature? (V)"
+Ice or Polar Water Operations,16.13,Are procedures in place to safeguard the operation of critical equipment in sub-freezing temperatures? (V)
+Ice or Polar Water Operations,16.14,Are procedures in place to safeguard the readiness of lifesaving appliances and survival arrangements in sub-freezing temperature? (V)
+Ice or Polar Water Operations,16.15,Are procedures in place to safeguard the readiness of firefighting equipment in sub-freezing temperature? (V)
+Ice or Polar Water Operations,16.16,"Are procedures in place to safeguard the ballast lines, hydraulic lines, fire lines and bunker lines in sub-freezing temperature? (V)"
+Ice or Polar Water Operations,16.17,Are means and procedures in place to safeguard the readiness of the ballast systems in sub-freezing temperature? (V)
+Ice or Polar Water Operations,16.18,Are means and procedures in place to safeguard the blockage of vent pipes in sub-freezing temperature? (V)
+Ice or Polar Water Operations,16.19,Are the emergency drill procedures amended prior to entering sub-freezing / polar areas and are the crew being regularly trained with such a procedure? (V)
+Ice or Polar Water Operations,16.20,"If the vessel intends to trade in Polar Regions, have the hull underwriters and P&I Club been informed? (V)"

@@ -1,0 +1,31 @@
+Code,Meaning,Action,Weight
+10,Deficiency rectified,Record only – keep evidence,10
+12,All deficiencies rectified (follow‑up),Maintain records,10
+14,Rectify within 1 month,Plan routine repair,25
+15,Rectify at next port,Arrange spares/contractor next port,35
+16,Rectify within 14 days,Close‑out inside 2 weeks,45
+17,Rectify before departure,Fix immediately before sailing,60
+18,Rectify within 3 months,Schedule into maintenance plan,40
+19,Flag ISM audit before departure,Complete flag audit to sail,80
+21,Correct ISM within 3 months,Submit & close corrective‑action plan,50
+26,Security authority informed,Prepare for security follow‑up,45
+30,Ship detained,Rectify detainable items; arrange release,100
+35,Ship released after detention,Monitor any conditions,85
+36,Ship released after follow‑up detention,Keep corrective evidence,85
+40,Next port informed,Expect follow‑up inspection,55
+45,Next port told to re‑detain / verify,Be ready for immediate verification,75
+46,Repair at named yard,Sail only to repair yard; send plan,65
+47,Class condition accepted,Comply; arrange permanent repair,50
+48,Flag condition accepted,Follow flag condition timeline,50
+49,Rectification Action Plan (MLC),Follow RAP milestones,45
+50,Flag / consul informed,Liaise with flag; send evidence,40
+55,Flag consulted,Provide info; await instructions,30
+60,Follow‑up in other MoU region,Prepare for additional inspection,45
+65,Operation stopped,Cease operation until cleared,80
+70,RO / class informed,Arrange class attendance,35
+80,Temporary substitution accepted,Use temporary; complete permanent fix,45
+81,Temporary repair carried out,Monitor & complete permanent repair,45
+85,MARPOL investigation,Co‑operate; secure records,70
+95,Letter of warning,Address concerns; avoid recurrence,20
+96,Warning withdrawn,Record closure,10
+99,Master instructed to…,Follow written instruction,70

@@ -1,0 +1,7 @@
+Change type,Rationale,Base weight
+Vessel name / call-sign,"Cosmetic, small KYC risk",+5
+Flag,PSC profile resets; certificates may lapse,+10
+Class,Technical standards reset; unknown survey history,+15
+Ownership,Liability / insurance continuity,+20
+Ship management,ISM & crewing practices change,+15
+Critical-system change,"Direct safety risk – weighted by impact category (Low = 0.5, Med = 1, High = 1.5)",+25 × impact
