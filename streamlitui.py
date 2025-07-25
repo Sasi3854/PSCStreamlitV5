@@ -11,9 +11,10 @@ import pandas as pd
 import plotly.graph_objects as go
 # from pathlib import Path
 from util import prepare_inspection_data,prepare_analysis_data,generate_entity_analysis_results,get_vessel_historical_score_mapping
-from util import get_vessel_change_scores,get_final_risk_score_mapping,get_vessel_segments
+from util import get_vessel_change_scores,get_final_risk_score_mapping,get_vessel_segments,get_access_token,get_deficiency_df_snowflake
 from trends_util import prepare_trend_analysis_data
 from recommendations_util import load_recommendations_data,create_indexes_and_embeddings,prepare_recommendations_data,generate_open_defect_recommendations
+from incidents_util import prepare_incidents_data
 import plotly.express as px
 import constants
 import numpy as np
@@ -56,10 +57,12 @@ def load_data():
     
     
     print("Loading Data......")
-    inspection_data = pd.read_csv("Synergy PSC Inspection.csv")
+    #inspection_data = pd.read_csv("Synergy PSC Inspection.csv")
+    access_token = get_access_token()
+    inspection_data = get_deficiency_df_snowflake(access_token)
     inspection_data = prepare_inspection_data(inspection_data)
     
-    
+    incidents_imo_subset,incidents_owners_subset,incidents_flag_subset,incidents_manager_subset = prepare_incidents_data()
     generic_factors_data = pd.read_excel("PSC Risk Generic and Dynamic Factors.xlsx",sheet_name="Vessel Generic Factor")
     dynamic_factors_data = pd.read_excel("PSC Risk Generic and Dynamic Factors.xlsx",sheet_name="Ship Dynamic Factors")
     #owner_profile_data = pd.read_excel("PSC Risk Generic and Dynamic Factors.xlsx",sheet_name="Registered Owner Profile")
@@ -96,7 +99,11 @@ def load_data():
         "psc_scores": psc_codes_scoring_data,
         "analysis_df_master":analysis_df,
         "dynamic_factors_data":dynamic_factors_data,
-        "current_risk_df":current_risk_df
+        "current_risk_df":current_risk_df,
+        "incidents_imo_subset":incidents_imo_subset,
+        "incidents_owners_subset":incidents_owners_subset,
+        "incidents_flag_subset":incidents_flag_subset,
+        "incidents_manager_subset":incidents_manager_subset
     }
 
 
@@ -238,6 +245,14 @@ st.session_state["analysis_df"] = analysis_df
 dynamic_factors_data = data["dynamic_factors_data"].copy()
 load_vessel_name_mapping(dynamic_factors_data)
 unique_vessels = pd.unique(analysis_df["IMO_NO"])
+
+incidents_imo_subset = data["incidents_imo_subset"]
+incidents_owners_subset = data["incidents_owners_subset"]
+incidents_flag_subset = data["incidents_flag_subset"]
+incidents_manager_subset = data["incidents_manager_subset"]
+
+
+
 # 👉  if you have a pre‑cleaned `analysis_df` in your module, import it
 authorities = ["None"]+sorted(analysis_df["AUTHORITY"].dropna().unique())
 entities = ["Owners","Yard","Flag","Class","Main Engine Make","Main Engine Model","Manager"]
@@ -279,8 +294,8 @@ tab_risk, tab_trend, tab_reco,tab_settings = st.tabs(["🛡 Risk", "📈 Trend",
 
 # ====================  RISK  =======================================
 with tab_risk:
-    risk_home, risk_entity, risk_hist, risk_change, current_risk = st.tabs([
-        "🏠 Home", "🏢 Entity Risk", "📜 Historical Risk", "🔀 Change Risk","🛡 Current Risk"])
+    risk_home, risk_entity, risk_hist, risk_change, current_risk,incident_risk = st.tabs([
+        "🏠 Home", "🏢 Entity Risk", "📜 Historical Risk", "🔀 Change Risk","🛡 Current Risk","🛠️ Incident Risk"])
 
     # --------------------------------------------------------------
     # 4‑A  Home sub‑tab
@@ -612,7 +627,74 @@ with tab_risk:
             curr_risk_df_disp = current_risk_df[(current_risk_df["IMO"]==sel_vessel81) & (current_risk_df["kpi_item"]==sel_risk81)]
             curr_risk_df_disp["IMO"] = curr_risk_df_disp["IMO"].astype(str)
             st.dataframe(curr_risk_df_disp)
+    
+    with incident_risk:
+        unique_vessel91 = ["None"]+list(pd.unique(incidents_imo_subset["IMO_NO"]))
+        unique_owners91 = ["None"]+list(pd.unique(incidents_owners_subset["ACTUAL_OWNERS"]))
+        unique_managers91 = ["None"]+list(pd.unique(incidents_manager_subset["MANAGER_GROUP"]))
+        unique_flags91 = ["None"]+list(pd.unique(incidents_flag_subset["FLAG_STATE"]))
+        col911, col912,col913,col914= st.columns(4)
+        with col911:
+            sel_vessel91 = st.selectbox(                                                                                                                                                                       
+                "Select Vessel",                                                                                                                                                                                  
+                unique_vessel91,                                                                                                                                                                                       
+                format_func=format_vessel_option ,key="selves91"                                                                                                                                                                 
+            )
+            
+            if(sel_vessel91=="None"):
+                st.dataframe(incidents_imo_subset, hide_index=True)
+            else:
+                vessel_incident_df = incidents_imo_subset[incidents_imo_subset["IMO_NO"]==sel_vessel91]
+                # vessel_incident_df = vessel_incident_df.groupby("IMO_NO").mean()
+                st.dataframe(vessel_incident_df.groupby("IMO_NO").mean().T)
+                st.dataframe(vessel_incident_df, hide_index=True)
+
+                
+        with col912:
+            sel_owner91 = st.selectbox(                                                                                                                                                                       
+                "Select Owner",                                                                                                                                                                                  
+                unique_owners91,key="selowner91"                                                                                                                                                                                    
+            )
+            
+            if(sel_owner91=="None"):
+                st.dataframe(incidents_owners_subset, hide_index=True)
+            else:
+                vessel_owner_df = incidents_owners_subset[incidents_owners_subset["ACTUAL_OWNERS"]==sel_owner91]
+                # vessel_incident_df = vessel_incident_df.groupby("IMO_NO").mean()
+                st.dataframe(vessel_owner_df.groupby("ACTUAL_OWNERS").mean().T)
+                st.dataframe(vessel_owner_df, hide_index=True)
+
+        with col913:
+            sel_manager91 = st.selectbox(                                                                                                                                                                       
+                "Select Manager",                                                                                                                                                                                  
+                unique_managers91,                                                                                                                                                                                       
+                key="selmanager91"                                                                                                                                                                 
+            )
+            
+            if(sel_manager91=="None"):
+                st.dataframe(incidents_manager_subset, hide_index=True)
+            else:
+                vessel_manager_df = incidents_manager_subset[incidents_manager_subset["MANAGER_GROUP"]==sel_manager91]
+                # vessel_incident_df = vessel_incident_df.groupby("IMO_NO").mean()
+                st.dataframe(vessel_manager_df.groupby("MANAGER_GROUP").mean().T)
+                st.dataframe(vessel_manager_df, hide_index=True)
+
+        with col914:
+            sel_flag91 = st.selectbox(                                                                                                                                                                       
+                "Select Flag",                                                                                                                                                                                  
+                unique_flags91 ,key="selflag91"                                                                                                                                                                 
+            )
+            
+            if(sel_flag91=="None"):
+                st.dataframe(incidents_flag_subset, hide_index=True)
+            else:
+                vessel_flag_df = incidents_flag_subset[incidents_flag_subset["FLAG_STATE"]==sel_flag91]
+                # vessel_incident_df = vessel_incident_df.groupby("IMO_NO").mean()
+                st.dataframe(vessel_flag_df.groupby("FLAG_STATE").mean().T)
+                st.dataframe(vessel_flag_df, hide_index=True)
+
         
+
         
 # ====================  TREND  ======================================
 with tab_trend:

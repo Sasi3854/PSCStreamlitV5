@@ -7,3 +7,4 @@ networkx
 pyvis
 chardet
 openpyxl
+databricks-sql-connector

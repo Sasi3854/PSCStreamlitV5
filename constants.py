@@ -11,6 +11,7 @@ from typing import Dict, Iterable, Tuple
 from sentence_transformers import SentenceTransformer
 from nltk.stem import WordNetLemmatizer
 from sentence_transformers import CrossEncoder
+from databricks import sql
 # ── core regex patterns ────────────────────────────────────────────
 NUM_RE   = re.compile(r"\d+")        # grabs every run of digits
 DELIM_RE = re.compile(r"[\/,;]")     # split on / , or ;  (add more if needed)
@@ -156,10 +157,52 @@ model_rerank = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 lemmatizer = WordNetLemmatizer()
 # embeddings = model.encode(text_analysis_df["ISSUE_DETAILS"], show_progress_bar=False)
 
+DEFICIENCIES_TABLE = "REPORTING_LAYER.QHSE.SYNERGYPOOL_VW_PSC_PERFORMANCE"
+INCIDENTS_TABLE = "REPORTING_LAYER.QHSE.VW_INCIDENT"
+OPEN_DEFECTS_TABLE = "REPORTING_LAYER.CRP.DFT_DEFECT_LIST"
 
 
 
 
 
+###################################################################################
+# Define external/crew-related incident categories to exclude
+external_incidents_sub_categories = [
+    'Security_incident', 'Injury', 'Medvac', 'Death due to illness ',
+    'Fatality', 'Fatality due to illness ', 'Missing person', 'Man overboard'
+]
 
+external_incidents_sub2_categories = [
+    'Sabotage', 'First aid', 'Fatality', 'Theft', 'LTI',
+    'Disability', 'Stowaways'
+]
 
+# Mapping for standardization
+standardization_mapping = {
+    'minor': 'minor',
+    'miinor': 'minor',
+    'slight': 'minor',
+    'substantial': 'substantial',
+    'substantial harm': 'substantial',
+    'level 3': 'substantial',
+    'level 3 - substantial': 'substantial',
+    'level 2': 'marginal',
+    'level 2 (marginal)': 'marginal',
+    'marginal': 'marginal',
+    'critical': 'critical',
+    'severe': 'critical',
+    'catastrophic': 'catastrophic',
+    'catestrophic': 'catastrophic'
+}
+
+# Define risk mapping to scores from 0 to 100
+risk_score_mapping = {
+    'catastrophic': 100,
+    'critical': 80,
+    'substantial': 60,
+    'marginal': 40,
+    'minor': 20
+}
+
+HALF_LIFE_INCIDENTS = 360 # 1 year to reduce the score by 0.5
+lambda_val_incidents = np.log(2) / HALF_LIFE_INCIDENTS

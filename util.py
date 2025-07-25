@@ -17,6 +17,10 @@ from datetime import datetime
 from typing import Dict, Iterable, Tuple
 import itertools
 import warnings
+import requests
+import base64
+from databricks import sql
+
 warnings.filterwarnings("ignore")
 today = datetime.now()
 def normalize_text(value):
@@ -726,6 +730,7 @@ def get_vessel_change_scores(dynamic_factors_data):
     dynamic_factors_data['Change_Risk_Score'] = dynamic_factors_data.apply(row_score, axis=1)
     vessel_change_score_mapping = dynamic_factors_data[["IMO No.","Change_Risk_Score"]].set_index('IMO No.')["Change_Risk_Score"].to_dict()
     # dynamic_factors_data[["IMO No.","Change_Risk_Score"]]
+    # print(vessel_change_score_mapping)
     return vessel_change_score_mapping
 
 
@@ -772,12 +777,18 @@ def compute_overall_risk_data(unique_vessels,analysis_df,score_mappings):
     vessel_scores = {}
     for vessel in unique_vessels:
         vessel_scores[vessel] = {}
-        if(vessel in vessel_change_score_mapping):
-            vessel_scores[vessel]["Change Score"] = vessel_change_score_mapping[int(vessel)]
+        if(vessel in vessel_change_score_mapping or int(vessel) in vessel_change_score_mapping):
+            try:
+                vessel_scores[vessel]["Change Score"] = vessel_change_score_mapping[int(vessel)]
+            except:
+                vessel_scores[vessel]["Change Score"] = vessel_change_score_mapping[vessel]
         else:
             vessel_scores[vessel]["Change Score"] = 0
         if(vessel in vessel_historical_score_mapping):
-            vessel_scores[vessel]["Historical Score"] = vessel_historical_score_mapping[int(vessel)]
+            try:
+                vessel_scores[vessel]["Historical Score"] = vessel_historical_score_mapping[int(vessel)]
+            except:
+                vessel_scores[vessel]["Historical Score"] = vessel_historical_score_mapping[vessel]
         else:
             vessel_scores[vessel]["Historical Score"] = 0
         
@@ -1033,8 +1044,60 @@ def get_vessel_segments(vessel_risk_scores_final):
 def get_vessel_details(vessel,generic_factors,dynamic_factors):
     return {}
     
-    
-    
+###################################################
+
+
+
+def get_access_token():
+    # 1) The token string you passed as "user" in curl
+    token = "6d8bfab4-4e70-454c-b1a7-c969376653d9:dose205564a70be7bd4653687144e0b0e221"
+
+    # 2) Build the Basic auth header value exactly as curl -u xyz does:
+    #    curl will base64‑encode "xyz" (no trailing colon) when you omit a secret.
+    b64 = base64.b64encode(token.encode("utf-8")).decode("ascii")
+    auth_header = f"Basic {b64}"
+
+    # 3) Your token endpoint and form payload
+    url = "https://adb-4626041107022307.7.azuredatabricks.net/oidc/v1/token"
+    payload = {
+        "grant_type": "client_credentials",
+        "scope":      "all-apis"
+    }
+
+    # 4) Send the POST with the handcrafted header
+    resp = requests.post(
+        url,
+        headers={
+          "Authorization": auth_header,
+          "Content-Type":  "application/x-www-form-urlencoded"
+        },
+        data=payload,
+        timeout=10
+    )
+
+    # 5) Check for errors
+    if not resp.ok:
+        print("Request failed:", resp.status_code, resp.text)
+        return None
+    else:
+        data = resp.json()
+        print("Success:", data)
+        print("Access token:", data.get("access_token"))
+        return data.get("access_token")
+
+def get_deficiency_df_snowflake(access_token):
+    connection = sql.connect(
+                        server_hostname = "adb-4626041107022307.7.azuredatabricks.net",
+                        http_path = "/sql/1.0/warehouses/de2adf4943b29216",
+                        access_token = access_token)
+    cursor = connection.cursor()
+    cursor.execute("select * from reporting_layer.qhse.synergypool_vw_psc_performance")
+    results = cursor.fetchall()
+    rows = results  # list of tuples
+    cols = [c[0] for c in cursor.description]
+    # 2. Build the DataFrame
+    deficiencies_df_latest = pd.DataFrame(rows, columns=cols)
+    return deficiencies_df_latest
     
     
     
