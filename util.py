@@ -20,6 +20,7 @@ import warnings
 import requests
 import base64
 from databricks import sql
+import os
 
 warnings.filterwarnings("ignore")
 today = datetime.now()
@@ -1050,7 +1051,7 @@ def get_vessel_details(vessel,generic_factors,dynamic_factors):
 
 def get_access_token():
     # 1) The token string you passed as "user" in curl
-    token = "6d8bfab4-4e70-454c-b1a7-c969376653d9:dose205564a70be7bd4653687144e0b0e221"
+    token = os.environ["DB_TOKEN"]
 
     # 2) Build the Basic auth header value exactly as curl -u xyz does:
     #    curl will base64‑encode "xyz" (no trailing colon) when you omit a secret.
