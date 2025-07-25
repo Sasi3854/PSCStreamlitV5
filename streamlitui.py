@@ -633,7 +633,8 @@ with tab_risk:
         unique_owners91 = ["None"]+list(pd.unique(incidents_owners_subset["ACTUAL_OWNERS"]))
         unique_managers91 = ["None"]+list(pd.unique(incidents_manager_subset["MANAGER_GROUP"]))
         unique_flags91 = ["None"]+list(pd.unique(incidents_flag_subset["FLAG_STATE"]))
-        col911, col912,col913,col914= st.columns(4)
+        col911, col912 = st.columns(2)
+        col913,col914= st.columns(2)
         with col911:
             sel_vessel91 = st.selectbox(                                                                                                                                                                       
                 "Select Vessel",                                                                                                                                                                                  
