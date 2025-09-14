@@ -11,6 +11,8 @@ from constants import model, model_rerank,category_dict
 import faiss
 import chardet
 import streamlit as st
+from llmutil import get_recommendations
+import unicodedata
 import warnings
 warnings.filterwarnings("ignore")
 def clean_internal_checklist(df):
@@ -302,6 +304,153 @@ def generate_open_defect_recommendations(internal_checklist,external_checklist,o
     vessel_defects = open_defects[open_defects["IMO_NO"] == imo]
     deficiency_recommendations = get_internal_external_checklist_items(internal_checklist,external_checklist,vessel_defects,index_internal,index_external)
     return deficiency_recommendations
+
+
+def get_text(text):
+    
+    val = text#additional_series_recommendations.iloc[0]
+    
+    # If it’s bytes, decode with best-effort fallbacks
+    if isinstance(val, (bytes, bytearray)):
+        for enc in ("utf-8", "cp1252", "latin-1"):
+            try:
+                rec_text = val.decode(enc)
+                break
+            except UnicodeDecodeError:
+                continue
+    else:
+        rec_text = str(val)
+    
+    # Normalize to a consistent Unicode form
+    rec_text = unicodedata.normalize("NFC", rec_text)
+    return rec_text
+
+
+def generate_recommendations(vessel,authority,authority_subcategory_distribution_time,vessel_subcategory_distribution_time,psc_category_recommenders,additional_data):
+    # subcategory_percentages_df_rec = authority_subcategory_distribution_time[authority]
+    # vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[vessel]
+    
+    subcategory_percentages_df_rec = authority_subcategory_distribution_time[authority]
+    vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[vessel]
+    
+    subcategory_percentages_df_rec_md = subcategory_percentages_df_rec.to_markdown(index=False)
+    vessel_subcategory_percentages_df_rec_md = vessel_subcategory_percentages_df_rec.to_markdown(index=False)
+    
+    df_mix_sub_category_rec = (subcategory_percentages_df_rec.merge(vessel_subcategory_percentages_df_rec, on="Category", how="outer").fillna(0))
+    df_mix_sub_category_rec.columns = ["Sub Category", "Authority Trends", "Vessel Trends"]
+    df_mix_sub_category_rec["Score"] = ((df_mix_sub_category_rec["Authority Trends"] *0.7) + (df_mix_sub_category_rec["Vessel Trends"])*0.3) # simple average
+    # sort by descending score
+   # ── Sort, show the ranking table ──────────────────────────────────────────────
+    df_mix_sub_category_rec = df_mix_sub_category_rec.sort_values("Score",ascending=False)
+    list_of_authorities = ["paris","tokyo","amsa"]
+    top_sub_cats_rec = df_mix_sub_category_rec.head(10)
+    
+    context_string = "Vessel IMO:"+str(vessel)+"\n"
+    context_string = "Authority:"+str(authority)+"\n"
+    context_string += "Context:\n"
+    for subcat in top_sub_cats_rec["Sub Category"].values:
+        rec_series = psc_category_recommenders.loc[
+            psc_category_recommenders["PSC Item Title"] == subcat, "Recommendation"
+        ]
+        if not rec_series.empty:
+            try:
+                # print(rec_series.iloc[0])
+                # print("---"*50)
+                rec_text = rec_series.iloc[0].encode('latin1').decode('utf-8')
+                context_string+="PSC Category:"+subcat+"\n"
+                context_string+="Recommendation:"+rec_text+"\n"
+            except:
+                continue
+        if any(sub_str in authority for sub_str in list_of_authorities):
+            if("paris" in authority):
+                trends_col = "Paris MOU Trends"
+                rec_col = "Paris MOU Recommendations"
+            elif("amsa" in authority):
+                trends_col="AMSA Trends"
+                rec_col="AMSA Recommendations"
+            else:
+                trends_col="Tokyo MOU Trends"
+                rec_col="Tokyo MOU Recommendations"
+                
+            additional_series_trends = additional_data.loc[additional_data["Title"]==subcat,trends_col]
+            additional_series_trends=additional_series_trends.dropna(how="all")
+            additional_series_recommendations = additional_data.loc[additional_data["Title"]==subcat,rec_col]
+            additional_series_recommendations = additional_series_recommendations.dropna(how="all")
+            if not additional_series_trends.empty:
+                print("$$$$$$$$$")
+                print(additional_series_trends)
+                trends_text = get_text(additional_series_trends.iloc[0])#.encode('latin1').decode('utf-8')
+                context_string+="The authoriy "+authority+" is running a focussed campaign on "+trends_text+ " which is of particular importance to the PSC Area "+subcat+"\n"
+                
+            if not additional_series_recommendations.empty:
+                print("$$$$$$$$$")
+                print(additional_series_recommendations)
+                rec_text = get_text(additional_series_recommendations.iloc[0])#.encode('latin1').decode('utf-8')
+                context_string+="The authoriy "+authority+" recommends the following action itmes on "+subcat+"\n"
+                context_string+=rec_text+"\n"
+        context_string+="----------------------------------------------------------------------------------------------------"
+    
+    # psc_data_trends_recommendations=pd.read_csv("PSC_Codes_Cleaned_Formatted_Proper.csv")
+
+    trends_vals = pd.unique(additional_data[trends_col].dropna().values)
+    # ",".join(pd.unique(psc_data_trends_recommendations["AMSA Trends"].dropna().values))
+    val_str_arr=[]
+    for val_str in trends_vals:
+        vals_str_arr_temp = val_str.strip().split(";")
+        for item in vals_str_arr_temp:
+            val_str_arr.append(item)
+    val_str_arr = pd.unique(val_str_arr)
+    trends_info_collated = ", ".join(val_str_arr)
+    
+    context_string+="Authority specific trends and Campaign Information Collated as Comma Separated String:\n"
+    context_string+=" "+trends_info_collated
+    context_string+="Vessel Historical Issue Distribution:\n"
+    context_string+=vessel_subcategory_percentages_df_rec_md+"\n"
+    
+    context_string+="Authority Historical Issue Distribution:\n"
+    context_string+=subcategory_percentages_df_rec_md+"\n"
+    
+    context_string+="Instructions:The above text forms the core of PSC Categories and generic recommendations and some authority specific recommendations "
+    context_string+=" for individual vessels based on certain analysis. Your job is to consolidate all the information in the context and present "
+    context_string+=" a neat and Professional set of Recommendations to the vessel staff to follow with particular emphasis on authority specific "
+    context_string+=" trends or recommendations. You should have special emphasis and section on Authority specific trends and recommendations if any. That has to be highlighted as an important one."
+    context_string+="Format the output in markdown format and give appropriate recommendations listed in a neat and consolidated way.\n"
+    context_string+="You should frame your message as coming from QHSE team. For more details contact QHSE team. Sample Format:"
+    context_string+="""
+                Always respond using the following format called.  
+                Do not add any extra text outside of the template.  
+                Do not change the section names.  
+                
+                ## Snapshot
+                - Summary of PSC Focus Areas from Authority Perspective
+                - Summary of PSC Focus Areas from Vessel Perspective
+                
+                ## Authority Trends and Campaigns
+                - Pointwise Summary of Campaigns and Authority Trends and its Description
+                
+                ## Recommendations
+                #1. [Recommendation title]
+                   - Rationale: [Why this matters]
+                   - Checklist/Recommendations:
+                     - [Step 1]
+                     - [Step 2]
+                
+                #2. [Recommendation title]
+                   - Rationale: [Why this matters]
+                   - Checklist/Recommendations:
+                     - [Step 1]
+                     - [Step 2]
+                
+               
+                ## Summary
+                - Key Findings:
+                  - [Finding 1]
+                  - [Finding 2]
+    
+    """
+    
+    markdown_response = get_recommendations(context_string)
+    return markdown_response,top_sub_cats_rec
 
     
 

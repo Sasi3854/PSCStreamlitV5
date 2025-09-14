@@ -13,11 +13,15 @@ import plotly.graph_objects as go
 from util import prepare_inspection_data,prepare_analysis_data,generate_entity_analysis_results,get_vessel_historical_score_mapping
 from util import get_vessel_change_scores,get_final_risk_score_mapping,get_vessel_segments,get_access_token,get_deficiency_df_snowflake
 from trends_util import prepare_trend_analysis_data
-from recommendations_util import load_recommendations_data,create_indexes_and_embeddings,prepare_recommendations_data,generate_open_defect_recommendations
+from recommendations_util import load_recommendations_data,create_indexes_and_embeddings,prepare_recommendations_data,generate_open_defect_recommendations,generate_recommendations
 from incidents_util import prepare_incidents_data
 import plotly.express as px
 import constants
 import numpy as np
+
+
+import unicodedata
+import re
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -77,7 +81,7 @@ def load_data():
     analysis_df = prepare_analysis_data(inspection_data,psc_codes_scoring_data,generic_factors_data)
     
     current_risk_df = pd.read_excel("Grounding Risk Scores.xlsx",sheet_name="Grounding Risk")
-    
+    additional_data = pd.read_csv("PSC_Codes_Cleaned_Formatted.csv")
     # inspection = pd.read_csv("Synergy PSC Inspection.csv")
     # generic    = pd.read_excel(
     #     "PSC Risk Generic and Dynamic Factors.xlsx",
@@ -103,7 +107,8 @@ def load_data():
         "incidents_imo_subset":incidents_imo_subset,
         "incidents_owners_subset":incidents_owners_subset,
         "incidents_flag_subset":incidents_flag_subset,
-        "incidents_manager_subset":incidents_manager_subset
+        "incidents_manager_subset":incidents_manager_subset,
+        "additional_data":additional_data
     }
 
 
@@ -113,6 +118,33 @@ internal_checklist_items,external_checklist_items,category_items,subcategory_ite
 # ------------------------------------------------------------------
 # 2.  ANALYSIS PLACE‑HOLDERS  (fill in with your model logic)
 # ------------------------------------------------------------------
+
+
+def render_markdown(text: str, allow_html: bool = False):
+    """
+    Safely render a string as Markdown in Streamlit.
+    - Normalizes Unicode (smart quotes → normal quotes, etc.)
+    - Ensures real newlines, not escaped \\n
+    - Strips accidental repr artifacts
+    - Optionally allows HTML tags
+    """
+    if text is None:
+        return
+
+    # Ensure it's a string
+    text = str(text)
+
+    # Normalize Unicode to avoid weird quotes/dashes
+    text = unicodedata.normalize("NFKC", text)
+
+    # Replace escaped newlines (\\n) with real ones
+    text = text.replace("\\n", "\n")
+
+    # Strip accidental extra quotes from str(obj) repr
+    text = re.sub(r"^b['\"]|['\"]$", "", text)
+
+    # Render
+    st.markdown(text, unsafe_allow_html=allow_html)
 
 def run_entity_analysis(df_filtered: pd.DataFrame):
     """Return a DF with entity‑level risk scores (placeholder)."""
@@ -250,7 +282,7 @@ incidents_imo_subset = data["incidents_imo_subset"]
 incidents_owners_subset = data["incidents_owners_subset"]
 incidents_flag_subset = data["incidents_flag_subset"]
 incidents_manager_subset = data["incidents_manager_subset"]
-
+additional_data = data['additional_data']
 
 
 # 👉  if you have a pre‑cleaned `analysis_df` in your module, import it
@@ -836,83 +868,85 @@ with tab_reco:
         
         if(sel_vessel712 and sel_vessel712!="None" and sel_auth712 and sel_auth712 !="None"):
             
-            subcategory_percentages_df_rec = authority_subcategory_distribution_time[sel_auth712]
-            vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[sel_vessel712]
+            markdown_response,top_sub_cats_rec = generate_recommendations(sel_vessel712,sel_auth712,authority_subcategory_distribution_time,vessel_subcategory_distribution_time,psc_category_recommenders,additional_data)
+            render_markdown(markdown_response)
+           #  subcategory_percentages_df_rec = authority_subcategory_distribution_time[sel_auth712]
+           #  vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[sel_vessel712]
             
-            subcategory_percentages_df_rec = authority_subcategory_distribution_time[sel_auth712]
-            vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[sel_vessel712]
+           #  subcategory_percentages_df_rec = authority_subcategory_distribution_time[sel_auth712]
+           #  vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[sel_vessel712]
             
-            df_mix_sub_category_rec = (subcategory_percentages_df_rec.merge(vessel_subcategory_percentages_df_rec, on="Category", how="outer").fillna(0))
-            df_mix_sub_category_rec.columns = ["Sub Category", "Authority Trends", "Vessel Trends"]
-            df_mix_sub_category_rec["Score"] = ((df_mix_sub_category_rec["Authority Trends"] *0.7) + (df_mix_sub_category_rec["Vessel Trends"])*0.3) # simple average
-            # sort by descending score
-           # ── Sort, show the ranking table ──────────────────────────────────────────────
-            df_mix_sub_category_rec = df_mix_sub_category_rec.sort_values("Score",
-                                                                          ascending=False)
-            top_sub_cats_rec = df_mix_sub_category_rec.head(10)
+           #  df_mix_sub_category_rec = (subcategory_percentages_df_rec.merge(vessel_subcategory_percentages_df_rec, on="Category", how="outer").fillna(0))
+           #  df_mix_sub_category_rec.columns = ["Sub Category", "Authority Trends", "Vessel Trends"]
+           #  df_mix_sub_category_rec["Score"] = ((df_mix_sub_category_rec["Authority Trends"] *0.7) + (df_mix_sub_category_rec["Vessel Trends"])*0.3) # simple average
+           #  # sort by descending score
+           # # ── Sort, show the ranking table ──────────────────────────────────────────────
+           #  df_mix_sub_category_rec = df_mix_sub_category_rec.sort_values("Score",
+           #                                                                ascending=False)
+           #  top_sub_cats_rec = df_mix_sub_category_rec.head(10)
 
             
-            # ── Global look & feel tweaks  (inject once, early in your script) ───────────
-            st.markdown(
-                """
-                <style>
-                    /* page background (Streamlit default is already white) */
-                    body, .stApp { background: #ffffff; }
+           #  # ── Global look & feel tweaks  (inject once, early in your script) ───────────
+           #  st.markdown(
+           #      """
+           #      <style>
+           #          /* page background (Streamlit default is already white) */
+           #          body, .stApp { background: #ffffff; }
             
-                    /* simple card widget */
-                    .psc-card        { border: 1px solid #e6e6e6;
-                                       border-radius: 6px;
-                                       margin: 1rem 0;
-                                       box-shadow: 0 2px 4px rgba(0,0,0,.05); }
+           #          /* simple card widget */
+           #          .psc-card        { border: 1px solid #e6e6e6;
+           #                             border-radius: 6px;
+           #                             margin: 1rem 0;
+           #                             box-shadow: 0 2px 4px rgba(0,0,0,.05); }
             
-                    /* blue header strip */
-                    .psc-card-header { background: #0c5db5;      /* adjust shade here */
-                                       color: #ffffff;
-                                       padding: 8px 14px;
-                                       font-weight: 600;
-                                       border-radius: 6px 6px 0 0;
-                                       font-size: 16px; }
+           #          /* blue header strip */
+           #          .psc-card-header { background: #0c5db5;      /* adjust shade here */
+           #                             color: #ffffff;
+           #                             padding: 8px 14px;
+           #                             font-weight: 600;
+           #                             border-radius: 6px 6px 0 0;
+           #                             font-size: 16px; }
             
-                    /* recommendation body */
-                    .psc-card-body   { padding: 12px 14px;
-                                       color: #333333;
-                                       line-height: 1.45; }
-                </style>
-                """,
-                unsafe_allow_html=True,
-            )
+           #          /* recommendation body */
+           #          .psc-card-body   { padding: 12px 14px;
+           #                             color: #333333;
+           #                             line-height: 1.45; }
+           #      </style>
+           #      """,
+           #      unsafe_allow_html=True,
+           #  )
             
-            # ── Render each recommendation as a card ─────────────────────────────────────
-            for subcat in top_sub_cats_rec["Sub Category"].values:
+           #  # ── Render each recommendation as a card ─────────────────────────────────────
+           #  for subcat in top_sub_cats_rec["Sub Category"].values:
                 
-                # print(subcat)
-                # print(psc_codes_scoring_data)
+           #      # print(subcat)
+           #      # print(psc_codes_scoring_data)
                 
-                # subcattxt = psc_codes_scoring_data[psc_codes_scoring_data["Code"]==subcat].values[0]
-                # print(subcattxt)
+           #      # subcattxt = psc_codes_scoring_data[psc_codes_scoring_data["Code"]==subcat].values[0]
+           #      # print(subcattxt)
                 
-                rec_series = psc_category_recommenders.loc[
-                    psc_category_recommenders["PSC Item Title"] == subcat, "Recommendation"
-                ]
+           #      rec_series = psc_category_recommenders.loc[
+           #          psc_category_recommenders["PSC Item Title"] == subcat, "Recommendation"
+           #      ]
             
-                # print(rec_series)
-                if not rec_series.empty:
-                    try:
-                        # print(rec_series.iloc[0])
-                        # print("---"*50)
-                        rec_text = rec_series.iloc[0].encode('latin1').decode('utf-8')
-                    except:
-                        continue
+           #      # print(rec_series)
+           #      if not rec_series.empty:
+           #          try:
+           #              # print(rec_series.iloc[0])
+           #              # print("---"*50)
+           #              rec_text = rec_series.iloc[0].encode('latin1').decode('utf-8')
+           #          except:
+           #              continue
             
-                    st.markdown(
-                        f"""
-                        <div class="psc-card">
-                            <div class="psc-card-header">{subcat}</div>
-                            <div class="psc-card-body">{rec_text}</div>
-                        </div>
-                        """,
-                        unsafe_allow_html=True,
-                    )
+           #          st.markdown(
+           #              f"""
+           #              <div class="psc-card">
+           #                  <div class="psc-card-header">{subcat}</div>
+           #                  <div class="psc-card-body">{rec_text}</div>
+           #              </div>
+           #              """,
+           #              unsafe_allow_html=True,
+           #          )
 
             with st.expander("Click Here View Trends"):
                 st.dataframe(top_sub_cats_rec, use_container_width=True)
