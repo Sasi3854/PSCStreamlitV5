@@ -216,23 +216,32 @@ def build_vessel_name_map(dynamic_df: pd.DataFrame):
     return dict(zip(dynamic_df["IMO No."], dynamic_df["Vessel Name "]))
 
 
-def format_vessel_option(imo_number):                                                                                                                                                                         
-    """Format vessel option for selectbox display"""    
-    #print(imo_number)
-    #print(st.session_state.vessel_name_mapping)
-    #print("--"*50)
-    if(str(imo_number)=="None"):
+def format_vessel_option(imo_number):
+    """Format vessel option for selectbox display"""
+
+    # Handle None, NaN, or blank strings safely
+    if imo_number is None or str(imo_number).strip().lower() in {"none", "", "nan"}:
         return "None"
-    
-    if str(imo_number) in st.session_state.vessel_name_mapping:                                                                                                                                                    
-        vessel_name = st.session_state.vessel_name_mapping[str(imo_number)]
-        return f"{vessel_name} (IMO: {imo_number})"
-    elif int(imo_number) in st.session_state.vessel_name_mapping:
-        vessel_name = st.session_state.vessel_name_mapping[int(imo_number)]
-        return f"{vessel_name} (IMO: {imo_number})"
-    else:                                                                                                                                                                                                     
-        return f"IMO: {imo_number}"  
-    
+
+    imo_str = str(imo_number).strip()
+
+    # First try string key lookup
+    if imo_str in st.session_state.vessel_name_mapping:
+        vessel_name = st.session_state.vessel_name_mapping[imo_str]
+        return f"{vessel_name} (IMO: {imo_str})"
+
+    # Then try integer key lookup if numeric
+    if imo_str.isdigit():
+        imo_int = int(imo_str)
+        if imo_int in st.session_state.vessel_name_mapping:
+            vessel_name = st.session_state.vessel_name_mapping[imo_int]
+            return f"{vessel_name} (IMO: {imo_int})"
+
+    # Fallback: just return the formatted IMO number
+    return f"IMO: {imo_str}"
+
+
+
 
 def load_vessel_name_mapping(dynamic_factors_df):                                                                                                                                                                               
     """Load vessel name mapping from PSC Risk Generic and Dynamic Factors.xlsx"""                                                                                                                             
@@ -382,7 +391,7 @@ with tab_risk:
             risk_table_display.set_index("Vessel Name", inplace=True)
             with col1:
                 st.header("Fleet Risks")
-                st.dataframe(risk_table_display, use_container_width=True)                
+                st.dataframe(risk_table_display, use_container_width=True)     # , width='stretch'           
 
         if(sel_vessel):
 
