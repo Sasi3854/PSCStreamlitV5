@@ -28,7 +28,7 @@ def get_recommendations(prompt):
             {"role": "user", "content": prompt}
         ]
     }
-    
+    print(prompt)
     response = requests.post(url, headers=headers, json=data)
     
     if response.status_code == 200:
