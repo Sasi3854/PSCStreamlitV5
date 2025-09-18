@@ -13,6 +13,7 @@ import chardet
 import streamlit as st
 from llmutil import get_recommendations
 import unicodedata
+import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 def clean_internal_checklist(df):
@@ -177,6 +178,20 @@ def get_closest_checklist_items(nature_of_deficiency, checks_internal, category_
     #historical_combo_text = ranked_results_internal[0][1]
     return ranked_results_internal,ranked_results_external
 
+def get_closest_subcategories(nature_of_deficiency, index_subcategories, subcat_titles, k=3):
+    if isinstance(nature_of_deficiency, float):
+        nature_of_deficiency = str(nature_of_deficiency)
+    query_embedding = model.encode([nature_of_deficiency], convert_to_numpy=True)
+    distances_subcategory, indices_subcategory = index_subcategories.search(query_embedding, k)
+    
+    subcategory_results = []
+    for idx, dist in zip(indices_subcategory[0], distances_subcategory[0]):
+        subcategory_results.append((subcat_titles[idx], subcat_titles[idx], dist))
+        
+    return subcategory_results
+
+
+
 def rerank_cross_encoder(query, results):
     """
     Rerank candidates using a cross-encoder model.
@@ -297,7 +312,7 @@ def create_indexes_and_embeddings(internal_checklist_items,external_checklist_it
     index_subcategory_desc = faiss.IndexFlatL2(dimension)
     index_subcategory_desc.add(embeddings_subcategory_desc)
     
-    return index_internal,index_external
+    return index_internal,index_external,index_subcategories
 
 
 def generate_open_defect_recommendations(internal_checklist,external_checklist,open_defects,index_internal,index_external,imo):
@@ -325,8 +340,260 @@ def get_text(text):
     rec_text = unicodedata.normalize("NFC", rec_text)
     return rec_text
 
+def generate_vessel_defects_info(vessel_defects,index_subcategories,subcat_titles):
+    master_list_of_subcategories_for_defects=[]
+    vessel_defects=vessel_defects[vessel_defects["STATUS"]=="Open"]
+    vessel_defects_subset = vessel_defects[["Nature of deficiency","CREATEDDATE"]]
+    vessel_defects_subset["Category"] = ""
+    categories = []
+    for deficiency in vessel_defects_subset["Nature of deficiency"].values:
+        subcat_results = get_closest_subcategories(deficiency, index_subcategories, subcat_titles)
+        potential_sub_cats = list(np.unique([res[0]for res in subcat_results]))
+        categories.append(potential_sub_cats) 
+        master_list_of_subcategories_for_defects = master_list_of_subcategories_for_defects + potential_sub_cats
+    vessel_defects_subset["Category"] = categories
+    vessel_defects_exploded = vessel_defects_subset.explode("Category", ignore_index=True)
+    master_list_of_subcategories_for_defects = np.unique(master_list_of_subcategories_for_defects)
+    return vessel_defects_exploded, master_list_of_subcategories_for_defects
 
-def generate_recommendations(vessel,authority,authority_subcategory_distribution_time,vessel_subcategory_distribution_time,psc_category_recommenders,additional_data):
+def generate_authority_trends_info(subcategory_percentages_df_rec):
+    subcategory_percentages_df_rec = subcategory_percentages_df_rec[subcategory_percentages_df_rec["Percentage"]>0.01]
+    subcategory_percentages_df_rec.sort_values("Percentage",ascending=False)
+    return subcategory_percentages_df_rec
+
+def generate_vessel_trends_info(vessel_subcategory_percentages_df_rec):
+    vessel_subcategory_percentages_df_rec = vessel_subcategory_percentages_df_rec.sort_values("Percentage",ascending=False)
+    return vessel_subcategory_percentages_df_rec
+
+def generate_authority_campaigns_info(additional_data,authority):
+    if("paris" in authority):
+        trends_col = "Paris MOU Trends"
+        rec_col = "Paris MOU Recommendations"
+    elif("amsa" in authority):
+        trends_col="AMSA Trends"
+        rec_col="AMSA Recommendations"
+    elif("tokyo" in authority):
+        trends_col="Tokyo MOU Trends"
+        rec_col="Tokyo MOU Recommendations"
+    else:
+        trends_col=None
+        rec_col = None
+
+    if(trends_col is not None and rec_col is not None):
+        authority_trends_and_campaigns = additional_data[[trends_col,rec_col,"Title"]]
+        authority_trends_and_campaigns = authority_trends_and_campaigns.dropna(subset=[trends_col])
+    else:
+        authority_trends_and_campaigns = None
+    return authority_trends_and_campaigns
+
+def classify_psc_categories(subcategory_items,master_list_of_subcategories_for_defects,subcategory_percentages_df_rec,vessel_subcategory_percentages_df_rec,authority_trends_and_campaigns):
+    subcat_criticality_score_mapping = {}
+    cols_list = ["Defect Score","Authority Trends","Vessel Trends","Campaigns"]
+    subcat_criticality_score_mapping_df = pd.DataFrame(index=subcategory_items,columns=cols_list)
+    for col in cols_list:
+        subcat_criticality_score_mapping_df[col] = 0
+    for subcat in subcategory_items:
+        subcat_criticality_score_mapping[subcat] = 0
+        # Checking for Open Defects undr the Sub Category
+        if(subcat in master_list_of_subcategories_for_defects):
+            subcat_criticality_score_mapping[subcat]+=1
+            subcat_criticality_score_mapping_df.loc[subcat, "Defect Score"] = 1
+        # Checking for Authority Trends
+        if(subcat in subcategory_percentages_df_rec["Category"].values):
+            subcat_criticality_score_mapping[subcat]+=1
+            subcat_criticality_score_mapping_df.loc[subcat, "Authority Trends"] = 1
+        # Checking for Vessel Trends
+        if(subcat in vessel_subcategory_percentages_df_rec["Category"].values):
+            subcat_criticality_score_mapping[subcat]+=1
+            subcat_criticality_score_mapping_df.loc[subcat, "Vessel Trends"] = 1
+        # Checking for Campaigns
+        if(authority_trends_and_campaigns is not None):
+            if(subcat in authority_trends_and_campaigns["Title"].values):
+                subcat_criticality_score_mapping[subcat]+=1
+                subcat_criticality_score_mapping_df.loc[subcat, "Campaigns"] = 1
+        else:
+            subcat_criticality_score_mapping_df.loc[subcat, "Campaigns"] = 0            
+    subcat_criticality_score_mapping_df["Final Score"] = subcat_criticality_score_mapping_df["Defect Score"] + subcat_criticality_score_mapping_df["Authority Trends"] + subcat_criticality_score_mapping_df["Vessel Trends"]+ subcat_criticality_score_mapping_df["Campaigns"]
+    # subcat_criticality_score_mapping_df = subcat_criticality_score_mapping_df[subcat_criticality_score_mapping_df["Final Score"]>1]
+    subcat_criticality_score_mapping_df.sort_values("Final Score",ascending=False)
+
+
+    critical_areas = subcat_criticality_score_mapping_df[subcat_criticality_score_mapping_df["Final Score"]>2]
+    moderate_areas = subcat_criticality_score_mapping_df[subcat_criticality_score_mapping_df["Final Score"]==2]
+    good_to_have_areas = subcat_criticality_score_mapping_df[subcat_criticality_score_mapping_df["Final Score"]==1]
+    # Columns to check for zero values
+    cols_to_check = ['Defect Score', 'Vessel Trends']
+    # Create a boolean mask: True if any of the specified columns are zero in a row
+    # The `any(axis=1)` checks if any True value exists across the columns for each row
+    mask = (good_to_have_areas[cols_to_check] != 0).any(axis=1)
+    # Drop rows where the mask is True (i.e., where at least one of the specified columns is zero)
+    good_to_have_areas_filtered = good_to_have_areas[mask].head(10)
+
+    return critical_areas,moderate_areas,good_to_have_areas_filtered
+def generate_context_string_for_category(authority,additional_data,vessel_defects_exploded,psc_category_recommenders,issue_areas,issue_type):
+    context_string=""
+    internal_checklist_column = "Mapped Questions-Internal"
+    external_checklist_column = "Mapped Questions-External"
+    list_of_authorities = ["paris","tokyo","amsa"]
+    for i,row in issue_areas.iterrows():
+        subcat = str(i)
+        context_string += "\nContext for the PSC Category:"+subcat+"\n"
+        context_string += "The nature of this PSC Category is "+str(issue_type)+"\n"
+        if(row["Defect Score"]==1):
+            context_string+= "The vessel has below Open Defect Under the PSC Category:"+subcat+"\n"
+            opendefect = vessel_defects_exploded[vessel_defects_exploded["Category"]==i]["Nature of deficiency"].values[0]
+            context_string+="\t"+opendefect+"\n"
+        if(row["Authority Trends"]==1):
+            context_string+= "Historically the authority has focussed on the PSC Category:"+subcat+"\n"
+        if(row["Vessel Trends"]==1):
+            context_string+= "Historically the vessel has had issues on the PSC Category:"+subcat+"\n"
+        if(row["Campaigns"]==1):
+            context_string+= "The authority is running a campaign on the PSC Category:"+subcat+"\n"
+
+            if any(sub_str in authority for sub_str in list_of_authorities):
+                if("paris" in authority):
+                    trends_col = "Paris MOU Trends"
+                    rec_col = "Paris MOU Recommendations"
+                elif("amsa" in authority):
+                    trends_col="AMSA Trends"
+                    rec_col="AMSA Recommendations"
+                else:
+                    trends_col="Tokyo MOU Trends"
+                    rec_col="Tokyo MOU Recommendations"
+                additional_series_trends = additional_data.loc[additional_data["Title"]==subcat,trends_col]
+                additional_series_trends=additional_series_trends.dropna(how="all")
+                additional_series_recommendations = additional_data.loc[additional_data["Title"]==subcat,rec_col]
+                additional_series_recommendations = additional_series_recommendations.dropna(how="all")
+                
+                
+                if not additional_series_trends.empty:
+                    #print("$$$$$$$$$")
+                    #print(additional_series_trends)
+                    trends_text = get_text(additional_series_trends.iloc[0])#.encode('latin1').decode('utf-8')
+                    context_string+="The authority "+authority+" is running a focussed campaign on "+trends_text+ " which is of particular importance to the PSC Area "+subcat+"\n"
+                    
+                if not additional_series_recommendations.empty:
+                    #print("$$$$$$$$$")
+                    #print(additional_series_recommendations)
+                    rec_text = get_text(additional_series_recommendations.iloc[0])#.encode('latin1').decode('utf-8')
+                    context_string+="The authority "+authority+" recommends the following action items on "+subcat+"\n"
+                    context_string+="\t"+rec_text+"\n"
+
+        rec_series = psc_category_recommenders.loc[
+                psc_category_recommenders["PSC Item Title"] == subcat, "Recommendation"
+            ]
+        if not rec_series.empty:
+            try:
+                # print(rec_series.iloc[0])
+                # print("---"*50)
+                rec_text = rec_series.iloc[0].encode('latin1').decode('utf-8')
+                context_string+="General Recommendations for the PSC Category:"+subcat+"\n"
+                recs = rec_text.split(";")
+                for rec in recs:
+                    context_string+="\t"+rec.strip()+"\n"
+                context_string+="\n"
+                # context_string+=rec_text+"\n"
+            except:
+                continue
+
+        additional_series_internal_checklist = additional_data.loc[additional_data["Title"]==subcat,internal_checklist_column]
+        additional_series_internal_checklist = additional_series_internal_checklist.dropna(how="all")
+        
+        additional_series_external_checklist = additional_data.loc[additional_data["Title"]==subcat,external_checklist_column]
+        additional_series_external_checklist = additional_series_external_checklist.dropna(how="all")
+        if not additional_series_internal_checklist.empty:
+            #print("$$$$$$$$$")
+            #print(additional_series_internal_checklist)
+            i_chk_text = get_text(additional_series_internal_checklist.iloc[0])#.encode('latin1').decode('utf-8')
+            context_string+="Attached below is a series of questions or checklist(Synergy Internal) a vessel should conform to relevant to "+subcat+". This list or questions maybe very relevant to the PSC Category. Sometimes it might be irrelevant as well. If you find the questions relevant, Provide it as a separate bullet point under header Synergy Checklist.\n"
+            i_questions = i_chk_text.split("#")
+            for i_question in i_questions:
+                #i_chk_text = i_question.strip()
+                context_string+="\t"+i_question.strip()+"\n"
+            
+        if not additional_series_external_checklist.empty:
+            #print("$$$$$$$$$")
+            #print(additional_series_external_checklist)
+            e_chk_text = get_text(additional_series_external_checklist.iloc[0])#.encode('latin1').decode('utf-8')
+            context_string+="Attached below is a series of questions or checklist(Rightship External) a vessel should conform to relevant to "+subcat+". This list or questions maybe very relevant to the PSC Category. Sometimes it might be irrelevant as well. If you find the questions relevant, Provide it as a separate bullet point under header Rightship Checklist.\n"
+            e_questions = e_chk_text.split("#")
+            for e_question in e_questions:
+                #e_chk_text = e_question.strip()
+                context_string+="\t"+e_question.strip()+"\n"
+        context_string+="----------------------------------------------------------------------------------------------------\n"
+    # print(context_string)
+    return context_string
+
+def generate_full_context_string(authority, vessel, vessel_defects_exploded, additional_data, psc_category_recommenders,critical_areas,moderate_areas,good_to_have_areas_filtered):
+    context_string=""
+    context_string+="Instructions:You are a member of the QHSE team in Synergy Marine. Your job is to provide customized recommendations for vessel considering various internal and external factors specific to the vessel and port being visited by it."
+    context_string+="You must consider the below context which contains detailed breakdown of all the information necessary to make recommendations to the vessel.  Your job is to consolidate all the information in the context and present "
+    context_string+=" a neat and Professional set of Recommendations to the vessel staff to follow with particular emphasis on authority specific "
+    context_string+=" trends or recommendations. Do not miss out any relevant information but feel free to remove duplicate information or recommendation. You should have special emphasis and section on Authority specific trends and recommendations if any. That has to be highlighted as an important one."
+    context_string+="Format the output in markdown format and give appropriate recommendations listed in a neat and consolidated way.\n"
+    context_string+="You should frame your message as coming from QHSE team. Sample Format:"
+    context_string+="""
+                Always respond using the following format.  
+                Do not add any extra text outside of the template.  
+                Do not change the section names.  
+                
+                ## Snapshot
+                - Summary of PSC Focus Areas from Authority Perspective
+                - Summary of PSC Focus Areas from Vessel Perspective
+                
+                ## Authority Trends and Campaigns
+                - Pointwise Summary of Campaigns and Authority Trends and its Description
+                
+                ## Recommendations
+                #1. [Recommendation title] - Nature of Recommendation(Critical, Moderate or Low-maybe use traffic light icons)
+                    - Rationale: [Why this PSC Area matters - Maybe the because the vessel has Open Defects or the authority is Running a campaign or the vessel historically has had issues in this area or authority traditionally focusses on this area or a combination of multiple factors. 
+                                 If there is a Open defect in this PSC Category, Display the Open defect below in italicized and quoted text]
+                    - General Checklist/Recommendations:
+                      - [Step 1]
+                      - [Step 2]
+                
+                #2. [Recommendation title]
+                    - Rationale: 
+                    - General Checklist/Recommendations:
+                      - [Step 1]
+                      - [Step 2]
+                
+                
+                ## Summary
+                - Key Findings:
+                  - [Finding 1]
+                  - [Finding 2]
+
+    """
+
+    context_string += "Vessel IMO:"+str(vessel)+"\n"
+    context_string += "Authority:"+str(authority)+"\n"
+    context_string += "Context:\n"
+    context_string += "\n"
+    context_string+=generate_context_string_for_category(authority,additional_data,vessel_defects_exploded,psc_category_recommenders,critical_areas,"CRITICAL")
+    context_string+=generate_context_string_for_category(authority,additional_data,vessel_defects_exploded,psc_category_recommenders,moderate_areas,"MODERATE")
+    context_string+=generate_context_string_for_category(authority,additional_data,vessel_defects_exploded,psc_category_recommenders,good_to_have_areas_filtered,"RECOMMENDED")
+    return context_string
+
+def generate_recommendations(vessel,authority,authority_subcategory_distribution_time,vessel_subcategory_distribution_time,psc_category_recommenders,additional_data,open_defects,index_subcategories,subcat_titles):
+    vessel_str = str(vessel).strip()
+    vessel_defects = open_defects[open_defects["IMO_NO"] == vessel_str]
+    subcategory_items = subcat_titles
+    subcategory_percentages_df_rec = authority_subcategory_distribution_time[authority]
+    vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[vessel]
+    vessel_defects_exploded, master_list_of_subcategories_for_defects = generate_vessel_defects_info(vessel_defects,index_subcategories,subcat_titles)
+    subcategory_percentages_df_rec = generate_authority_trends_info(subcategory_percentages_df_rec)
+    vessel_subcategory_percentages_df_rec = generate_vessel_trends_info(vessel_subcategory_percentages_df_rec)
+    authority_trends_and_campaigns = generate_authority_campaigns_info(additional_data,authority)
+    critical_areas,moderate_areas,good_to_have_areas_filtered = classify_psc_categories(subcategory_items,master_list_of_subcategories_for_defects,subcategory_percentages_df_rec,vessel_subcategory_percentages_df_rec,authority_trends_and_campaigns)
+    context_string = generate_full_context_string(authority, vessel, vessel_defects_exploded, additional_data, psc_category_recommenders,critical_areas,moderate_areas,good_to_have_areas_filtered)
+    markdown_response = get_recommendations(context_string)
+    category_classification = pd.concat([critical_areas,moderate_areas,good_to_have_areas_filtered])
+    return markdown_response, category_classification
+
+
+
+def generate_recommendations_old(vessel,authority,authority_subcategory_distribution_time,vessel_subcategory_distribution_time,psc_category_recommenders,additional_data,open_defects,index_subcategories,subcat_titles):
     # subcategory_percentages_df_rec = authority_subcategory_distribution_time[authority]
     # vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[vessel]
     
@@ -344,9 +611,35 @@ def generate_recommendations(vessel,authority,authority_subcategory_distribution
     df_mix_sub_category_rec = df_mix_sub_category_rec.sort_values("Score",ascending=False)
     list_of_authorities = ["paris","tokyo","amsa"]
     top_sub_cats_rec = df_mix_sub_category_rec.head(10)
+    internal_checklist_column = "Mapped Questions-Internal"
+    external_checklist_column = "Mapped Questions-External"
+    
+    print(open_defects.head())
+    print(vessel)
+    print(open_defects["IMO_NO"].dtype)
+    # vessel_defects = open_defects[open_defects["IMO_NO"] == vessel]
+    open_defects["IMO_NO"] = open_defects["IMO_NO"].astype(str).str.strip()
+    vessel_str = str(vessel).strip()
+    
+    vessel_defects = open_defects[open_defects["IMO_NO"] == vessel_str]
+    # vessel_defects = open_defects[open_defects["IMO_NO"].astype(str) == str(vessel)]
+    # print(vessel_defects)
+    
+    # vessel_defects1 = open_defects[open_defects["IMO_NO"] == vessel_str]
+    # print(vessel_defects1)
+    for deficiency in vessel_defects["Nature of deficiency"].values:
+        
+        subcat_results = get_closest_subcategories(deficiency, index_subcategories, subcat_titles)
+        print("**"*50)
+        print(deficiency,subcat_results[0][0])
+        print("**"*50)
+        # print("**"*50)
+        # print(subcat_results)
+        # print("**"*50)
+        # print("**"*50)
     
     context_string = "Vessel IMO:"+str(vessel)+"\n"
-    context_string = "Authority:"+str(authority)+"\n"
+    context_string += "Authority:"+str(authority)+"\n"
     context_string += "Context:\n"
     for subcat in top_sub_cats_rec["Sub Category"].values:
         rec_series = psc_category_recommenders.loc[
@@ -372,22 +665,48 @@ def generate_recommendations(vessel,authority,authority_subcategory_distribution
                 trends_col="Tokyo MOU Trends"
                 rec_col="Tokyo MOU Recommendations"
                 
+           
+                
             additional_series_trends = additional_data.loc[additional_data["Title"]==subcat,trends_col]
             additional_series_trends=additional_series_trends.dropna(how="all")
             additional_series_recommendations = additional_data.loc[additional_data["Title"]==subcat,rec_col]
             additional_series_recommendations = additional_series_recommendations.dropna(how="all")
+            
+            
             if not additional_series_trends.empty:
                 print("$$$$$$$$$")
                 print(additional_series_trends)
                 trends_text = get_text(additional_series_trends.iloc[0])#.encode('latin1').decode('utf-8')
-                context_string+="The authoriy "+authority+" is running a focussed campaign on "+trends_text+ " which is of particular importance to the PSC Area "+subcat+"\n"
+                context_string+="The authority "+authority+" is running a focussed campaign on "+trends_text+ " which is of particular importance to the PSC Area "+subcat+"\n"
                 
             if not additional_series_recommendations.empty:
                 print("$$$$$$$$$")
                 print(additional_series_recommendations)
                 rec_text = get_text(additional_series_recommendations.iloc[0])#.encode('latin1').decode('utf-8')
-                context_string+="The authoriy "+authority+" recommends the following action itmes on "+subcat+"\n"
+                context_string+="The authority "+authority+" recommends the following action items on "+subcat+"\n"
                 context_string+=rec_text+"\n"
+                
+                
+                
+        additional_series_internal_checklist = additional_data.loc[additional_data["Title"]==subcat,internal_checklist_column]
+        additional_series_internal_checklist = additional_series_internal_checklist.dropna(how="all")
+        
+        additional_series_external_checklist = additional_data.loc[additional_data["Title"]==subcat,external_checklist_column]
+        additional_series_external_checklist = additional_series_external_checklist.dropna(how="all")
+        if not additional_series_internal_checklist.empty:
+            print("$$$$$$$$$")
+            print(additional_series_internal_checklist)
+            i_chk_text = get_text(additional_series_internal_checklist.iloc[0])#.encode('latin1').decode('utf-8')
+            context_string+="Attached below is a series of questions or checklist(Synergy Internal) a vessel should conform to relevant to "+subcat+". This list or questions maybe very relevant to the PSC Category. Sometimes it might be irrelevant as well. If you find the questions relevant, Provide it as a separate bullet point under header Synergy Checklist.\n"
+            context_string+=i_chk_text+"\n"
+            
+        if not additional_series_external_checklist.empty:
+            print("$$$$$$$$$")
+            print(additional_series_external_checklist)
+            e_chk_text = get_text(additional_series_external_checklist.iloc[0])#.encode('latin1').decode('utf-8')
+            context_string+="Attached below is a series of questions or checklist(Rightship External) a vessel should conform to relevant to "+subcat+". This list or questions maybe very relevant to the PSC Category. Sometimes it might be irrelevant as well. If you find the questions relevant, Provide it as a separate bullet point under header Rightship Checklist.\n"
+            context_string+=e_chk_text+"\n"
+        
         context_string+="----------------------------------------------------------------------------------------------------"
     
     # psc_data_trends_recommendations=pd.read_csv("PSC_Codes_Cleaned_Formatted_Proper.csv")
@@ -411,7 +730,7 @@ def generate_recommendations(vessel,authority,authority_subcategory_distribution
     context_string+=subcategory_percentages_df_rec_md+"\n"
     
     context_string+="Instructions:The above text forms the core of PSC Categories and generic recommendations and some authority specific recommendations "
-    context_string+=" for individual vessels based on certain analysis. Your job is to consolidate all the information in the context and present "
+    context_string+=" for individual vessels based on certain analysis. I may have also on case to case basis include some open defects and corresponding recommendations. Your job is to consolidate all the information in the context and present "
     context_string+=" a neat and Professional set of Recommendations to the vessel staff to follow with particular emphasis on authority specific "
     context_string+=" trends or recommendations. You should have special emphasis and section on Authority specific trends and recommendations if any. That has to be highlighted as an important one."
     context_string+="Format the output in markdown format and give appropriate recommendations listed in a neat and consolidated way.\n"
@@ -431,13 +750,13 @@ def generate_recommendations(vessel,authority,authority_subcategory_distribution
                 ## Recommendations
                 #1. [Recommendation title]
                    - Rationale: [Why this matters]
-                   - Checklist/Recommendations:
+                   - Generic Checklist/Recommendations:
                      - [Step 1]
                      - [Step 2]
                 
                 #2. [Recommendation title]
                    - Rationale: [Why this matters]
-                   - Checklist/Recommendations:
+                   - Generic Checklist/Recommendations:
                      - [Step 1]
                      - [Step 2]
                 

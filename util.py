@@ -816,6 +816,10 @@ def compute_overall_risk_data(unique_vessels,analysis_df,score_mappings):
                 vessel_scores[vessel]["Manager Risk Score"] = manager_risk_score_mapping[vesselmanager]
             else:
                 vessel_scores[vessel]["Manager Risk Score"] = 0
+                
+            vessel_age = analysis_df[(analysis_df["IMO_NO"]==vessel)]["AGE_OF_VESSEL"].values[0]
+            age_risk = calculate_age_risk(vessel_age)
+            vessel_scores[vessel]["Age Risk Score"] = round(age_risk,2)
             # vesselcrew = vessel_profile[vessel]["Crew"]
             # if(vesselcrew in crew_risk_score_mapping):
             #     vessel_scores[vessel]["Crew Risk Score"] = crew_risk_score_mapping[vesselcrew]
@@ -868,12 +872,33 @@ def compute_overall_risk_data(unique_vessels,analysis_df,score_mappings):
             
     return vessel_scores
 
-
-def get_final_risk_score_mapping(unique_vessels,analysis_df,score_mappings):
+def calculate_age_risk(age):
+    if(age is None):
+        age=0
+    age = float(age)
+    if age <= 15:
+        # Linear risk from 0 to 50
+        return (age / 15) * 50
+    elif 15 < age <= 25:
+        # Exponential growth from 50 to 100
+        # Normalized exponential from 0 to 50 added to 50 base
+        # So that at age=15 → 50, at age=25 → 100
+        # Use exponential formula: 50 + 50 * ((e^(k*(age-15)) - 1) / (e^(k*10) - 1))
+        k = 0.3  # growth rate constant; adjust to control curve shape
+        exp_part = np.exp(k * (age - 15)) - 1
+        max_exp = np.exp(k * 10) - 1
+        return 50 + 50 * (exp_part / max_exp)
+    else:
+        # Cap risk at 100
+        return 100.0
     
+def get_final_risk_score_mapping(unique_vessels,analysis_df,score_mappings):
+    # vessel_age = analysis_df[(analysis_df["IMO_NO"]==sel_vessel)]["AGE_OF_VESSEL"].values[0]
     vessel_scores = compute_overall_risk_data(unique_vessels,analysis_df,score_mappings)
+    # print(vessel_scores)
     vessel_risk_scores_final = pd.DataFrame(vessel_scores).T
     overall_risk = compute_overall_risk(vessel_risk_scores_final,RISK_WEIGHTS)
+    # vessel_risk_scores_final["Age Risk"] = 0
     vessel_risk_scores_final["Overall Risk"] = overall_risk
     return vessel_risk_scores_final
 

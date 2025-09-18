@@ -9,7 +9,7 @@ Created on Thu Sep  4 10:32:18 2025
 import requests
 import os
 # Replace with your OpenRouter API key
-API_KEY = os.environ["OPEN_ROUTER_KEY"]
+API_KEY = "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"#os.environ["OPEN_ROUTER_KEY"]
 
 url = "https://openrouter.ai/api/v1/chat/completions"
 

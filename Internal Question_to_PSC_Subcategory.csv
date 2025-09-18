@@ -1,0 +1,143 @@
+Checklist Question,Matched Subcategories,Scores
+Are all certificates valid (including calibration certs as per AD-04)?,Certificates & Documentation # Certificates and Documentation - Document # Certificates & Documentation - Ship Certificate,0.639 # 0.623 # 0.602
+"Any major surveys / CSM items due next 3 months. If any overdue, to be dealt with immediately?",Shipboard mar. poll. Emergency plan (MPEP) for NLS ,0.646 # 0.644 # 0.639
+Any COCs on vessel. Check due dates?,Others,0.680 # 0.677 # 0.672
+"Review of last Internal Audit/PSC/FSI/Vetting Reports. Any remarks/observations outstanding? If closed, is the closure effective?","Report of inspection on MLC, 2006",0.702 # 0.670 # 0.669
+Contact point list of SOPEP is updated.?,Others,
+All ITU publications provided onboard are up-to-date.?,Facilities for reception of marine safety information # Nautical publications,0.647 # 0.637 # 0.627
+Latest nautical publications are available on board.?,Nautical publications # Charts,0.729 # 0.684 # 0.675
+Endorsement by Flag State of crew certificate are valid.?,Endorsement by flagstate # Application for Endorsement by flagstate # Certificates for master and officers,0.800 # 0.760 # 0.717
+Any past PSC detentions/SIRE refusals?,Others,0.670 # 0.658 # 0.658
+Seafarer Employment Agreement (SEA) is valid within the contract period. The contract period of SEA is checked to be in line with company procedure.?,Seafarer' employment agreement SEA # Survey report file # Record of employment,0.745 # 0.708 # 0.685
+Wage is paid in monthly interval in accordance with SEA/CBA.?,Wages # Calculation and payment,0.709 # 0.705 # 0.705
+Condition of Accomodation AC / heating?,"Insulation # Heating # Cold room, cold room cleanliness, cold room temperature",0.670 # 0.664 # 0.661
+Availability of normal temp/hot water at all decks?,Heating,0.651 # 0.648 # 0.647
+Condition of provisions/potable fresh water?,"Provisions quality # Water, pipes, tanks",0.715 # 0.711 # 0.705
+Record of potable water testing?,"Water, pipes, tanks",0.643 # 0.633 # 0.628
+"Housekeeping and hygiene in galley and common spaces in accommodation. Galley floor tiles in good condition, no leaking taps.?","Cleanliness # Galley, handlingroom (maintenance)",0.749 # 0.738 # 0.733
+"Fire doors closing properly. No stoppers or hold-backs in place to keep doors open, (including those in the galley, store rooms, mess rooms)?","Fire doors/openings in fire-resisting divisions # Means of control (opening, pumps) Machinery spaces # Fire-dampers",0.748 # 0.706 # 0.695
+Cleanliness of common toilets on various decks?,Manholes / flush scuttles # Sanitary facilities # Cleanliness,0.702 # 0.695 # 0.679
+"Cleanliness of individual cabins, including toilets?","Cleanliness # Dirty, parasites # Furnishings",0.728 # 0.707 # 0.689
+"Cleanliness of Hospital, Record and availability of medicines, condition of Medical oxygen and equipment. Test of call alarm.?","Cleanliness # Medical equipment # Medical Equipment, medical chest, medical guide",0.697 # 0.689 # 0.680
+Crew contracts - crew member must be performing duties for which the contract is signed. For e.g - a person having signed a contract as wiper cannot be shown performing motorman duty even if he has a watchkeeping certificate.?,Certificate for rating for watchkeeping # Certificate for rating able seafarer deck/engine and electro-technical # Seafarer' employment agreement SEA,0.678 # 0.658 # 0.652
+LSA / FFA Equipment and Systems?,"Performance standards for radio equipment # Evaluation, testing and approval",0.649 # 0.637 # 0.636
+"Fixed fire fighting system for ER and pump room last tested/next testing due. If CO2 system, check validity of cylinder weightment and pressure testing dates ; check that flexible hoses for CO2 system have been renewed at 10 years interval.?",Fixed fire extinguishing installation # Maintenance of Fire protection systems # Ready availability of fire fighting equipment,0.742 # 0.722 # 0.701
+"Fixed fire fighting system for deck on tankers last tested/next testing due. If foam system, check foam type and analysis reports , level of compound in foam tank (reqd qty of foam compound as per calculations in Foam system manual to be displayed at tank. Level corresponding to this approved quantity to be marked on level gauge.?",Fire protection cargo deck area # Fixed fire extinguishing installation # Decks - corrosion,0.747 # 0.680 # 0.667
+Fixed deck water spray system for gas carriers and IGF code vessels?,Fire protection cargo deck area # Fixed fire extinguishing installation # Certificate for personnel on ships subject to the IGF Code,0.676 # 0.654 # 0.647
+Fixed gas detection system on IGF code vessels for Fuel Preparation Room on IGF Code vessels?,Inert gas system # Inert gas alarm # Certificate for personnel on ships subject to the IGF Code,0.730 # 0.713 # 0.711
+Fixed fire fighting system for paint store/Sample locker?,Fixed fire extinguishing installation # Fire doors/openings in fire-resisting divisions # Fire protection cargo deck area,0.677 # 0.639 # 0.636
+Portable fire extinguishers last tested and charged. Date of servicing/pressure testing should be valid.?,Maintenance of Fire protection systems # Fire fighting equipment and appliances # Ready availability of fire fighting equipment,0.720 # 0.678 # 0.673
+Condition of main fire pumps/Emcy fire p/p. Pumps tried out?,Fire pumps and its pipes # Emergency fire pump and its pipes # Maintenance of Fire protection systems,0.733 # 0.712 # 0.687
+Condition of hoses and nozzles Samples Checked ?,"Maintenance of Fire protection systems # Ready availability of fire fighting equipment # Gauges, thermometers etc.",0.658 # 0.651 # 0.639
+Condition of fire line on deck & ER - any leakages/doublers/soft patches / temporary repairs?,"Maintenance of Fire protection systems # Division - decks, bulkheads and penetrations # Fire pumps and its pipes",0.656 # 0.655 # 0.654
+"Condition of fire line isolating valve. For tankers, condition of main deck line isolating valves?",Cargo tank vent system # Fire protection cargo deck area # Fire pumps and its pipes,0.702 # 0.693 # 0.693
+Foam compound  last test date / shelf life?,Others,
+"Quick closing valves & mechanism, check of operation.?","Means of control (opening, pumps) Machinery spaces # Operation of machinery # Closing devices/watertight doors",0.683 # 0.647 # 0.645
+Functioning of Remote stops and funnel flaps (including remote stops for IGF Code vessels)?,"Machinery space openings # Means of control (opening, pumps) Machinery spaces",0.667 # 0.667 # 0.665
+Condition of cargo hold ventilator flaps/pump room blowers high/low suction flaps / flaps of all natural and mechanical ventilators on deck.?,"Ventilators, air pipes, casings # Openings to cargo area, doors, ..., scuttles # Cargo pump room",0.698 # 0.674 # 0.668
+Condition of accommodation vents / recirc flaps of AC system?,"Ventilation (Accommodation) # Ventilation (Working spaces) # Ventilators, air pipes, casings",0.687 # 0.663 # 0.652
+Fire detection & alarm system  condition of sensors/test record / test gas(should be non flammable type for tankers)?,Fire protection cargo deck area # Fire detection # Inert gas alarm,0.730 # 0.722 # 0.708
+Condition of lifeboat structure?,Stowage and provision of lifeboats # Launching arrangements for survival craft # Embarkation arrangement survival craft,0.754 # 0.747 # 0.746
+Condition of lifeboat machinery including covers. Engines Tried Out. Starting battery expiry date (or supply date) and spare starting motor.?,Lifeboats # Reserve source of energy # Launching arrangements for survival craft # Embarkation arrangement survival craft,0.714 # 0.708 # 0.705
+"Lifeboat launching arrangement - condition of davits, hoisting winch motor, limit switches, embarkation ladders (including the condition of spliced ends), remote lowering mechanism/wire condition. Posters on bulkheads?",Launching arrangements for survival craft # Embarkation arrangement survival craft # Means of recovery of life saving appliances,0.773 # 0.744 # 0.717
+Lifeboat falls next renewal due?,Launching arrangements for survival craft # Lifeboat inventory,0.674 # 0.664 # 0.663
+Condition of lifeboat equipment?,Lifeboat inventory # Lifeboats # Rescue boat inventory,0.783 # 0.770 # 0.755
+"Condition of liferafts, cradles, symbols?",Inflatable liferafts # Lifeboat inventory # Stowage of liferafts,0.693 # 0.689 # 0.688
+Condition of SCBA compressor and equipment?,Maintenance of Fire protection systems # Ready availability of fire fighting equipment,0.666 # 0.648 # 0.621
+Condition of lifebouys on deck & bridge wings. MOB marker buoy to be of correct weight?,"Lifebuoys incl. provision and disposition # Freeboard marks # Windows, side scuttles and deadlights",0.707 # 0.692 # 0.675
+Condition of life jackets (including oversize ones) with lights checked at random.?,Lifejackets incl. provision and disposition # Lifeboat inventory,0.687 # 0.671 # 0.670
+Pressure testing of fire hoses at random?,Fire pumps and its pipes # Ready availability of fire fighting equipment # Emergency fire pump and its pipes,0.655 # 0.641 # 0.632
+Condition and test record of immersion suits. Crew able to demonstrate the wearing of immersion suit in 3 mins? Size of immersoin suits proper for the crew on board?,Immersion suits # Lifejackets incl. provision and disposition # Fire drills,0.724 # 0.679 # 0.674
+"Condition and number of EEBDs. Service records availability. If replacecable type, validity of expiry date?",Emergency escape breathing Device and disposition # Maintenance / duplication of equipment # Record of inspection,0.648 # 0.638 # 0.627
+"Rescue boat condition, launching and davit. If davit is equipped with hydraulic accumulator, it should be able to hold the hydraulic pressure. Test /service records are also important?",Launching arrangements for survival craft # Means of recovery of life saving appliances # Fast rescue boats,0.712 # 0.709 # 0.665
+Overall condition. Any oil stains/coating breakdown on shipsides?,Logbook entries referring AFS # Retention of oil on board # Paint condition,0.690 # 0.682 # 0.680
+Last 2 Thickness measurement reports (Sonic Guaging reports) for hull/decks/bulkkheads available and in good oder?,"Decks - corrosion # Bulkheads - operational damage # Beams, frames, floors-op.damage",0.677 # 0.674 # 0.674
+Review of survey statements for prior damages and reports?,"Record of inspection # Report of inspection on MLC, 2006 # Maintenance of Fire protection systems",0.671 # 0.644 # 0.637
+"Any visible dents? If yes, are they included in Class records?",Bulkheads - operational damage # Record of inspection # Log-books/compulsory entries,0.695 # 0.677 # 0.662
+Condition of tank domes/operating mechanism. Any signs of leakage from packing?,"Ventilators, air pipes, casings # Ventilation procedures / equipment # Ballast, fuel and other tanks",0.674 # 0.666 # 0.661
+Condition of cargo hold hatch covers/packing and operating mechanism. Any hydraulic leaks / non operational hydraulic motors?,"Cargo and other hatchways # Covers (hatchway-, portable-, tarpaulins, etc.) # Openings to cargo area, doors, ..., scuttles",0.743 # 0.700 # 0.693
+Condition of PV valves and maintenance/testing records?,Maintenance of Fire protection systems,0.664 # 0.635 # 0.630
+"Condition of Cargo tank level gauging system - Remote ullaging, functioning of high level alarms, independent hi-hi level alarms, secondary means of venting (pressure sensors). ROB of spares?",Inert gas alarm # Instrumentation # Atmosphere testing instruments,0.710 # 0.702 # 0.698
+Condition of access ladders inside the cargo holds?,"Safe means of access deck - hold/tank, etc. # Safe means of access # Safe means of access shore - ship",0.780 # 0.769 # 0.751
+Cargo hold water ingress alarms - function test and records?,Water level detectors on single hold cargo ships # Bulk carriers additional safety measures # Closing watertight doors alarm,0.740 # 0.697 # 0.693
+Cargo hold hatch covers operation and weather tightness.?,"Cargo and other hatchways # Covers (hatchway-, portable-, tarpaulins, etc.) # Openings to cargo area, doors, ..., scuttles",0.792 # 0.757 # 0.735
+Cleats are freely moving and in good condition?,Others,
+Entry procedure in place & comm sys in order?,Conformance Test Report # Radio communication # Main installation,0.638 # 0.630 # 0.623
+"General inspection of Lighting, Light fittings, Emergency lights, stub pipes & cable glands?","Electric equipment in general # Maintenance of Fire protection systems # Emergency lighting, batteries and switches",0.674 # 0.662 # 0.657
+Fixed Gas detection system?,Fixed fire extinguishing installation # Gas instruments # Atmosphere testing instruments,0.651 # 0.646 # 0.633
+Cargo p/p trips and remote stops?,Cargo operations including equipment # Cargo transfer - Tankers # Loading and unloading equipment,0.700 # 0.679 # 0.654
+Seachest and ovbd v/v testing arrangement?,Conformance Test Report # Voyage Data Recorder (VDR) / Simplified Voyage Data Recorder (S-VDR) # Records of drills and steering gear tests,0.626 # 0.614 # 0.610
+Emcy op. Of hyd v/vs of VRCS?,HSC operation # Voyage Data Recorder (VDR) / Simplified Voyage Data Recorder (S-VDR),0.605 # 0.602
+Bilge alarm and pumping arrangement?,15 PPM alarm arrangements # Water level detectors on single hold cargo ships # Bilge pumping arrangements,0.711 # 0.705 # 0.705
+"Condition of light fittings on the forward side of the accommodation. For tankers, must be Explosion proof and in intact/gas tight condition.?","Openings to cargo area, doors, ..., scuttles # Cargo pump room # Pump room bottom protection",0.688 # 0.682 # 0.673
+ODMCS operation/records. Review of ORB Part II entries?,Record of inspection (Accommodation) # Radio log (diary) # Record of inspection,0.650 # 0.646 # 0.641
+Seals of cargo and ballast pumps - free of leakages and clean bilges/tanktop?,"Bilge pumping arrangements # Cargo and other hatchways # Pumping, piping and discharge arrangements",0.706 # 0.698 # 0.697
+Housekeeping and painting?,"Cleanliness # Laundry # Galley, handlingroom (maintenance)",0.656 # 0.654 # 0.650
+Smart operation of Pump room blower flaps both at top and bottom of pump room.?,"Pump room bottom protection # Means of control (opening, pumps) Machinery spaces # Cargo pump room",0.633 # 0.622 # 0.602
+"Pump room booby hatch cover, skylight condition?","Machinery space openings # Openings to cargo area, doors, ..., scuttles # Covers (hatchway-, portable-, tarpaulins, etc.)",0.673 # 0.648 # 0.644
+Last 2 Shore service reports of all LSA/FFA euipment. Any concerns identified. Pressure testing record of extinguishers/CO2 bottles?,"Maintenance of Fire protection systems # Evaluation, testing and approval # Maintenance of Life Saving Appliances",0.747 # 0.729 # 0.724
+Check of records of Saturday Routines/ Monthly / Quarterly Routines of Safety / Pollution Prevention Equipment. Any concerns here to be immediately attended?,Maintenance of Fire protection systems # Radio log (diary) # Cleanliness,0.709 # 0.697 # 0.696
+Random Check of records for drills as per drill planner. Debrief with crew on last held drill.?,Security drills # Abandon ship drills # Radio log (diary),0.692 # 0.671 # 0.667
+"Emergency Generator - function test, spare starting motor, starting battery supply date (to be within 2 years) ; QC valve for independent Fuel tank?",Emergency source of power - Emergency generator # Reserve source of energy # Emergency fire pump and its pipes,0.674 # 0.671 # 0.652
+"Random check of Fireman Suits and equipment, communication eqpt, safety posters, availability of LSA/FFA training manuals at common places?",Maintenance of Fire protection systems # Personal equipment # Ready availability of fire fighting equipment,0.730 # 0.716 # 0.714
+"Operating condition of Radars, ECDIS, AIS , BNWAS, Magnetic Compass, Gyro, Anemometer, Doppler Log, Echosounder, VDR, Chart Recorder, RPM and Rudder Angle Indicators (including those on bridge wings).?",Gyro compass # Facilities for reception of marine safety information # Electronic charts (ECDIS),0.726 # 0.717 # 0.716
+Familiarity of crew with ECDIS?,Charts # Electronic charts (ECDIS) # Fire drills,0.710 # 0.701 # 0.653
+Operational status of EPIRB / SART?,VHF EPIRB # Satellite EPIRB 406MHz / 1.6 GHz # SART/AIS-SART,0.667 # 0.652 # 0.648
+All bridge equipment PMS checked/defects identified. Spares maintained as required.?,Maintenance / duplication of equipment # Other (load lines) # Main installation,0.715 # 0.690 # 0.686
+All Nautical Publications updated and available including USCG 33 & 46 CFR; USCG Navigation Rules - International - Inland?,Nautical publications # Facilities for reception of marine safety information # Document of compliance (DoC/ ISM),0.711 # 0.665 # 0.650
+Review of last dynamic navigation audit and PSC/Vetting deficiencies on navigation/bridge?,Monitoring of voyage or passage plan # Navigation records # Bridge operation,0.768 # 0.761 # 0.732
+Random Check of chart correction status?,Compass correction log # Record of inspection # Electronic charts (ECDIS),0.689 # 0.638 # 0.633
+Workstation for Cargo Tank Remote Level gauging system?,Oil / water interface detector,0.603
+Cargo tank pressure sensors (all should be operational) and spare sensors?,Instrumentation # Atmosphere testing instruments # Cargo tank vent system,0.696 # 0.694 # 0.687
+Operating condition of VRCS and important spares?,Reserve source of energy # Maintenance / duplication of equipment # Operation/maintenance,0.683 # 0.661 # 0.654
+Operating condition of Valve indicators and controls?,"Gauges, thermometers etc. # Operation of machinery # Water level indicator",0.663 # 0.644 # 0.639
+Operating condition of Cargo Tank Overfill Alarm System?,Inert gas alarm # 15 PPM alarm arrangements # Water level detectors on single hold cargo ships,0.713 # 0.707 # 0.688
+Operating conditon of Loadicator and record of test reports (for all ships)?,Stability/strenght/loading information and instruments # Ship Energy Efficiency Management plan # Load lines (including Exemption),0.694 # 0.658 # 0.647
+Random check of Enclosed Space entry permits / Hot work permits / Ship Shore safety checklists / MSDS of cargoes?,Security drills # Records of seafarers' daily hours of work or rest # Security related defects,0.704 # 0.698 # 0.697
+Enough portable radios available and in good working condition?,Radio life-saving appliances # Performance standards for radio equipment # Emergency equipment for 2-way comm.,0.675 # 0.664 # 0.654
+Calibration records of portable gas meters and UTIs and minimum spares available on board?,Gas instruments # Atmosphere testing instruments,0.679 # 0.671 # 0.667
+Structural and painting condition of main decks. TM reports available for review.?,Decks - cracking # Decks - corrosion # Paint condition,0.710 # 0.710 # 0.680
+"Condition of pipe supports, catwalk, ladders, gangways and net for same?","Safe means of access deck - hold/tank, etc. # Permanent means of access # Safe means of access",0.700 # 0.694 # 0.691
+"Condition and pressure test records of cargo lines, tk cleaning line, IG line, bunker lines. Condition of service air lines, conduits, hydraulic lines of deck including pipe supports and clamps?",Other (load lines) # Bulkheads - operational damage # Decks - corrosion,0.711 # 0.711 # 0.707
+Any pipelines on deck or deck plating having doublers/soft patches/leakages / temporary repairs?,Decks - corrosion # Manholes / flush scuttles # Decks - cracking,0.708 # 0.690 # 0.686
+"Condition of P/V Breaker, guage glass, Deck Seal, plating under deck seal.?",Decks - corrosion # Decks - cracking # Other (load lines),0.719 # 0.690 # 0.678
+"Condition of light fittings, ladders, portholes on accom decks?","Windows, side scuttles and deadlights # Adequate lighting - mooring arrangements # Lighting (Working spaces)",0.710 # 0.698 # 0.691
+Airpipe coaming (save alls) & head in good conditon without heavy corrosion or holes.?,"Ventilators, air pipes, casings # Steam pipes, pressure pipes, wires (insulation)",0.615 # 0.607
+"Loadline marks, draft marks visible/painted?",Freeboard marks # Triangle mark # Paint condition,0.724 # 0.683 # 0.647
+"Function test of Pumping arrangements for bosun store, steering flat?",Bilge pumping arrangements # Steering gear # Pump room bottom protection,0.661 # 0.640 # 0.636
+"Condition of cargo manifold for tankers - drip tray, gratings, drain lines, pipe supports, manifold valves, thickness of manifold flange, condition of spare reducers?","Cargo transfer - Tankers # Ballast, fuel and other tanks # Fire protection cargo deck area",0.713 # 0.696 # 0.695
+"15 ppm OWS , ODME, sewage plant (STP), incinerator - operation/test records. Effluent test records for STP.?",Oil filtering equipment # International Sewage Pollution Prevention Cert. # Sewage treatment plan,0.664 # 0.653 # 0.653
+SOPEP locker equipment adequate?,"Oil skin locker # Laundry, Adequate Locker # Safe means of access deck - hold/tank, etc.",0.652 # 0.641 # 0.634
+Garbage Management Plan and posters kept updated?,Garbage record book # Placards # Garbage management plan,0.646 # 0.639 # 0.637
+Oil record book entries in order?,Log-books/compulsory entries # Record book engine parameters # Oil record book,0.716 # 0.648 # 0.635
+Ops/maintenance records of system. Effluent test records.?,Maintenance of Fire protection systems # Radio log (diary) # Ozone depleting substances,0.642 # 0.635 # 0.633
+Does vessel have compliant fuel on board?,"Quality of fuel oil # Bunker delivery notes # Technical Files and if applicable, monitoring manual",0.726 # 0.723 # 0.710
+Inspection Records?,Record of inspection # Record of inspection (Accommodation),0.703 # 0.690 # 0.668
+Review of coating condition as per maintenance records?,Paint condition # Logbook entries referring AFS # Maintenance of Fire protection systems,0.707 # 0.695 # 0.690
+Review of piping system/valve integrity as per maintenance records.?,"Maintenance of Fire protection systems # Maintenance of Life Saving Appliances # Pumping, piping and discharge arrangements",0.718 # 0.685 # 0.684
+"Operate the crane and check the functioning of limit switches (Hoisting, Traverse/Slewing End limits)?",Loading and unloading equipment # Operation of machinery # Pilot ladders and hoist/pilot transfer arrangements,0.675 # 0.636 # 0.625
+"Check the condition of wires (no broken strands, kinks) and check that spare wire is available.?",Adequate lighting - mooring arrangements # Electrical # Ropes and wires,0.626 # 0.626 # 0.626
+"Check condition of Swivel, Sheaves, shackle, hook, safety latch and drum for cracks, abnormalities.?",Lashing material # Winches & capstans # Guards / fencing around dangerous machinery parts,0.665 # 0.653 # 0.646
+Availability of emergency operating kit for hose handling crane for tankers?,Ready availability of fire fighting equipment # Loading and unloading equipment # Cargo transfer - Tankers,0.653 # 0.647 # 0.646
+Is the Register of Cargo Machinery and Lifting Gear completed and up to date?,Cargo operations including equipment # Stability/strenght/loading information and instruments # Loading and unloading equipment,0.673 # 0.663 # 0.656
+Condition of windlass/winch machinery / brake lining / foundation. Availability of spare brake lining and Brake holding test kit?,Winches and capstans # Anchoring devices # Steering gear,0.708 # 0.673 # 0.668
+Condition of mooring ropes/wires/tails?,Ropes and wires # Winches and capstans # Lashing material,0.778 # 0.740 # 0.700
+Condition of anchor chain as visible?,Anchoring devices # Lashing material,0.645 # 0.627 # 0.625
+Review of MSMP and LMP. Physical verification of mooring winches/system/acessories/ropes/wires for wear and tear and suitability?,Winches and capstans # Load lines (including Exemption) # Stability/strenght/loading information and instruments,0.721 # 0.686 # 0.684
+"Housekeeping, Painting and Lighting?","Lighting (Accommodation) # Galley, handlingroom (maintenance) # Cleanliness",0.672 # 0.666 # 0.660
+Condition of ER piping - leaks/soft patches/ temporary repairs?,"Insulation wetted through (oil) # Machinery # Ventilators, air pipes, casings",0.638 # 0.624 # 0.623
+Condition of ER piping below floor plates - leaks/soft patches/ temporary repairs?,"Insulation wetted through (oil) # Ventilators, air pipes, casings # Electric equipment in general",0.613 # 0.612 # 0.610
+Condition of SW main line in bilges - leaks/soft patches/ temporary repairs?,Other (load lines) # Bulkheads - operational damage # Logbook entries referring AFS,0.689 # 0.684 # 0.679
+Oil/water leaks from ME components?,Insulation wetted through (oil) # Machinery # Jacketed high pressure lines and oil leakage alarm,0.672 # 0.642 # 0.629
+"Steering gear and associated machinery - telemotor controls ; rudder angle indicator, Gyro repeater, communication with Navigation console, hydraulic oil leaks , system alarms and trips, emergency steering arrangement.?",Steering gear # Steering-gear alarm # Emergency steering position communications/ compass reading,0.693 # 0.683 # 0.674
+Operating condition of AE (each must be able to take at least 80% of rated load)?,International Energy Efficiency Cert # Other (machinery) # Electrical,0.639 # 0.637 # 0.636
+Oil/water leaks from AE. Drip tray of each AE to be clean and well painted.?,Insulation wetted through (oil) # Machinery,0.625 # 0.603
+Auto operating condition of aux boiler and IG system (for tankers)?,Inert gas system # Inert gas alarm # Boiler-alarm,0.699 # 0.670 # 0.668
+Calibration record of ER alarms/trips in PMS?,UMS-alarms # Other (alarms) # Alarms,0.656 # 0.643 # 0.636
+Operating condition of heavy duty electrical motors?,Machinery # Operation of machinery # Other (machinery),0.682 # 0.665 # 0.663
+Operating condition and running hours/day of Main Air Compressor?,Operation of machinery # Machinery # Maintenance of Fire protection systems,0.616 # 0.615 # 0.607
+Operating condition of Accom AC system and prov refrigeration system?,"Cold room, cold room cleanliness, cold room temperature # Maintenance of Fire protection systems # Operation of machinery",0.642 # 0.640 # 0.623
+Operating condition of Main Sea Water pumps / Boiler feed water pumps / ME associated pumps / FO supply/circulating pumps?,"Emergency fire pump and its pipes # Fire pumps and its pipes # Pumping, piping and discharge arrangements",0.688 # 0.686 # 0.677
+Review of PMS for ME / AE / Aux Boiler/ SW pumps / Purifiers/ Main Air Compressors/Cranes?,Maintenance of Fire protection systems # Protection machinery # 15 PPM alarm arrangements,0.692 # 0.664 # 0.661
+Random check of critical spares/essential spares ROB?,Protection machines/parts # Guards - fencing around dangerous machinery parts # Maintenance of Life Saving Appliances,0.661 # 0.648 # 0.647
+"Note - Each category gives guidance on it's own score. Even though total score may be in above mentioned ranges, a low score in individual categories should drive an expanded inspection in those areas of concern.?","Protection machines/parts # Evaluation, testing and approval # Record of inspection",0.675 # 0.675 # 0.675

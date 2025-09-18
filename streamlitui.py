@@ -19,7 +19,7 @@ from incidents_util import prepare_incidents_data
 import plotly.express as px
 import constants
 import numpy as np
-
+import datetime
 
 import unicodedata
 import re
@@ -82,7 +82,7 @@ def load_data():
     analysis_df = prepare_analysis_data(inspection_data,psc_codes_scoring_data,generic_factors_data)
     
     current_risk_df = pd.read_excel("Grounding Risk Scores.xlsx",sheet_name="Grounding Risk")
-    additional_data = pd.read_csv("PSC_Codes_Cleaned_Formatted.csv")
+    additional_data = pd.read_csv("PSC_Consolidated_Checklist_Trends_Campaigns.csv")
     # inspection = pd.read_csv("Synergy PSC Inspection.csv")
     # generic    = pd.read_excel(
     #     "PSC Risk Generic and Dynamic Factors.xlsx",
@@ -261,6 +261,14 @@ def load_vessel_name_mapping(dynamic_factors_df):
         return False                                                                                                                                                                                          
     return False 
 
+def show_incident_flag(probability: str):
+    flag_map = {
+        "High": "🔴 High",
+        "Medium": "🟡 Medium",
+        "Low": "🟢 Low"
+    }
+    st.markdown(f"**Probability of Inspection:** {flag_map.get(probability, 'Unknown')}")
+
 @st.cache_resource(show_spinner=True)
 def get_checklist_indexes():
     return create_indexes_and_embeddings(
@@ -269,7 +277,7 @@ def get_checklist_indexes():
         category_desc_items, subcategory_desc_items,
     )
 
-index_internal, index_external = get_checklist_indexes()
+index_internal, index_external, index_subcategories = get_checklist_indexes()
 
 
 
@@ -429,10 +437,24 @@ with tab_risk:
                     st.metric("Overall Risk", value=f"{overall_risk_vessel}")
                     st.write("**Labels:**", row.get("Risk Label", "-"))
                 st.header("Vessel Summary:")
+                last_inspection_date = None
                 if(sel_auth=="None"):
                     sub_df = analysis_df[analysis_df["IMO_NO"]==sel_vessel].copy()
                 else:
                     sub_df = analysis_df[(analysis_df["IMO_NO"]==sel_vessel) & (analysis_df["AUTHORITY"]==sel_auth)].copy()
+                    last_inspection_date = sub_df["INSPECTION_FROM_DATE"].sort_values(ascending=False).values[0]
+                    # Get the current time in np.datetime64 format
+                    current_time = np.datetime64(datetime.datetime.utcnow())
+                    # Calculate the difference
+                    time_difference = current_time - last_inspection_date
+                    days = (time_difference/ np.timedelta64(1, 'D')).astype(int)#.astype('timedelta64[D]').astype(int)
+                    if(days>360):
+                        probability_of_inspection = "High"
+                    elif(days>180):
+                        probability_of_inspection = "Medium"
+                    else:
+                        probability_of_inspection = "Low"
+                    show_incident_flag(probability_of_inspection)
                 sub_df.sort_values(by="INSPECTION_FROM_DATE",inplace=True)
                 sub_df.reset_index(drop=True,inplace=True)
                 # "Issue Count":len(sub_df),
@@ -853,8 +875,10 @@ with tab_trend:
 
 # ====================  RECOMMENDATIONS  ============================
 with tab_reco:
-    trends_based, open_defect  = st.tabs([
-        "Vessel/Authority Trend", "Open Defects"])
+    # trends_based, open_defect  = st.tabs([
+    #     "Vessel/Authority Trend", "Open Defects"])
+    trends_based,  = st.tabs([
+        "Vessel/Authority Trend"])
     
     vessel_ids_rec = ["None"] + list(pd.unique(open_defects["IMO_NO"].values))
     with trends_based:
@@ -878,7 +902,7 @@ with tab_reco:
         
         if(sel_vessel712 and sel_vessel712!="None" and sel_auth712 and sel_auth712 !="None"):
             
-            markdown_response,top_sub_cats_rec = generate_recommendations(sel_vessel712,sel_auth712,authority_subcategory_distribution_time,vessel_subcategory_distribution_time,psc_category_recommenders,additional_data)
+            markdown_response,top_sub_cats_rec = generate_recommendations(sel_vessel712,sel_auth712,authority_subcategory_distribution_time,vessel_subcategory_distribution_time,psc_category_recommenders,additional_data,open_defects,index_subcategories,subcategory_items)
             render_markdown(markdown_response)
            #  subcategory_percentages_df_rec = authority_subcategory_distribution_time[sel_auth712]
            #  vessel_subcategory_percentages_df_rec = vessel_subcategory_distribution_time[sel_vessel712]
@@ -963,69 +987,69 @@ with tab_reco:
             
             
             # st.header("Recommendations")
-    with open_defect:
-        col611, col612= st.columns(2)
+    # with open_defect:
+    #     col611, col612= st.columns(2)
         
-        with col611:
-            sel_vessel61 = st.selectbox(                                                                                                                                                                       
-                "Select Vessel",                                                                                                                                                                                  
-                vessel_ids_rec,                                                                                                                                                                                       
-                format_func=format_vessel_option,key="sel_vessel61"                                                                                                                                                               
-            )
+    #     with col611:
+    #         sel_vessel61 = st.selectbox(                                                                                                                                                                       
+    #             "Select Vessel",                                                                                                                                                                                  
+    #             vessel_ids_rec,                                                                                                                                                                                       
+    #             format_func=format_vessel_option,key="sel_vessel61"                                                                                                                                                               
+    #         )
             
-        if(sel_vessel61):
-            # index_internal,index_external = create_indexes_and_embeddings(internal_checklist_items,external_checklist_items,category_items,subcategory_items,category_desc_items,subcategory_desc_items)
-            deficiency_recommendations = generate_open_defect_recommendations(internal_checklist,external_checklist,open_defects,index_internal,index_external,sel_vessel61)
+    #     if(sel_vessel61):
+    #         # index_internal,index_external = create_indexes_and_embeddings(internal_checklist_items,external_checklist_items,category_items,subcategory_items,category_desc_items,subcategory_desc_items)
+    #         deficiency_recommendations = generate_open_defect_recommendations(internal_checklist,external_checklist,open_defects,index_internal,index_external,sel_vessel61)
             
-        # col621, col622= st.columns(2)
-        st.markdown("<h2 style='margin-bottom: 18px;'>Live Defects & Recommendations basis Checklist</h2>", unsafe_allow_html=True)
+    #     # col621, col622= st.columns(2)
+    #     st.markdown("<h2 style='margin-bottom: 18px;'>Live Defects & Recommendations basis Checklist</h2>", unsafe_allow_html=True)
     
-        for defect, chks in deficiency_recommendations.items():
+    #     for defect, chks in deficiency_recommendations.items():
             
-            internal_chks = deficiency_recommendations[defect]["internal"]
-            ichkarr = []
-            echkarr = []
-            for ichk in internal_chks:
-                ichkarr.append(ichk[0])
+    #         internal_chks = deficiency_recommendations[defect]["internal"]
+    #         ichkarr = []
+    #         echkarr = []
+    #         for ichk in internal_chks:
+    #             ichkarr.append(ichk[0])
             
-            external_chks = deficiency_recommendations[defect]["external"]
-            for echk in external_chks:
-                echkarr.append(echk[0])
+    #         external_chks = deficiency_recommendations[defect]["external"]
+    #         for echk in external_chks:
+    #             echkarr.append(echk[0])
             
-            # for section, items in recommendations.items():
-            st.markdown("""<style>
-                    .custom-bullet {
-                        margin-bottom: 10px;
-                        padding: 12px 18px;
-                        background: #f7fafd;
-                        border-radius: 7px;
-                        border-left: 5px solid #1a7ef7;
-                        font-size: 1.0em;
-                        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-                    }
-                    .custom-bullet1 {
-                        margin-bottom: 10px;
-                        padding: 12px 18px;
-                        background: #f7fafd;
-                        border-radius: 7px;
-                        border-left: 5px solid green;
-                        font-size: 1.0em;
-                        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-                    }
-                </style>
-            """, unsafe_allow_html=True)
+    #         # for section, items in recommendations.items():
+    #         st.markdown("""<style>
+    #                 .custom-bullet {
+    #                     margin-bottom: 10px;
+    #                     padding: 12px 18px;
+    #                     background: #f7fafd;
+    #                     border-radius: 7px;
+    #                     border-left: 5px solid #1a7ef7;
+    #                     font-size: 1.0em;
+    #                     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    #                 }
+    #                 .custom-bullet1 {
+    #                     margin-bottom: 10px;
+    #                     padding: 12px 18px;
+    #                     background: #f7fafd;
+    #                     border-radius: 7px;
+    #                     border-left: 5px solid green;
+    #                     font-size: 1.0em;
+    #                     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    #                 }
+    #             </style>
+    #         """, unsafe_allow_html=True)
             
-            with st.expander(f"🛠️ {defect}", expanded=False):  # Add emoji for a modern touch
-                for item in ichkarr[:1]:
-                    st.markdown(
-                        f"<div class='custom-bullet'>{item}</div>",
-                        unsafe_allow_html=True
-                    )
-                for item in echkarr[:1]:
-                    st.markdown(
-                        f"<div class='custom-bullet1'>{item}</div>",
-                        unsafe_allow_html=True
-                    )
+    #         with st.expander(f"🛠️ {defect}", expanded=False):  # Add emoji for a modern touch
+    #             for item in ichkarr[:1]:
+    #                 st.markdown(
+    #                     f"<div class='custom-bullet'>{item}</div>",
+    #                     unsafe_allow_html=True
+    #                 )
+    #             for item in echkarr[:1]:
+    #                 st.markdown(
+    #                     f"<div class='custom-bullet1'>{item}</div>",
+    #                     unsafe_allow_html=True
+    #                 )
             
 # ====================  SETTINGS  =====================================
 with tab_settings:

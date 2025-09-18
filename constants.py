@@ -56,12 +56,13 @@ RISK_WEIGHTS = {
     "Class Risk Score"         : 0.05,
 
     # Technical
-    "ME Make Risk Score"       : 0.05,
-    "ME Model Risk Score"      : 0.05,
+    "ME Make Risk Score"       : 0.025,
+    "ME Model Risk Score"      : 0.025,
 
     # Change & operational
     "Change Score"             : 0.4,
     "Historical Score"         : 0.2,
+    "Age Risk Score"           : 0.05
 
     # If you add new columns later simply extend the dict
 }
