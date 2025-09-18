@@ -455,6 +455,8 @@ with tab_risk:
                     else:
                         probability_of_inspection = "Low"
                     show_incident_flag(probability_of_inspection)
+                    
+                    
                 sub_df.sort_values(by="INSPECTION_FROM_DATE",inplace=True)
                 sub_df.reset_index(drop=True,inplace=True)
                 # "Issue Count":len(sub_df),
